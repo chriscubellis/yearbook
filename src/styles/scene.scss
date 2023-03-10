@@ -1,0 +1,71 @@
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: $default;
+}
+
+#overlay-controls {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: none;
+  top: 0;
+  left: 0;
+
+  .icon {
+    position: absolute;
+    background: red;
+    width: $iconSize;
+    height: $iconSize;
+    &#sound {
+      top: $iconMargin;
+      right: $iconMargin;
+    }
+    &#back {
+      top: $iconMargin;
+      left: $iconMargin;
+    }
+  }
+  #sound {
+    top: 0;
+    right: 0;
+  }
+}
+
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: $overlay;
+  background: rgba($black, 0.75);
+
+  &::after {
+    content: "";
+    width: $preloader;
+    height: $preloader;
+    position: absolute;
+    top: calc(50% - (#{$preloader} / 2));
+    left: calc(50% - (#{$preloader} / 2));
+    background: $red;
+    animation: loading 3s linear infinite;
+  }
+
+  &.scene-loaded {
+    opacity: 0;
+    &::after {
+      animation: none;
+      transform: scale(0.5);
+    }
+  }
+
+  @keyframes loading {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
