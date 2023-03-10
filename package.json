@@ -1,0 +1,23 @@
+{
+  "name": "giphy-staff-yearbook-2023",
+  "version": "1.0.0",
+  "description": "Scene exported with Spline",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "shx rm -f .parcel-cache/* && parcel build index.html --dist-dir ./dist"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "2.8.3",
+    "buffer": "^5.5.0",
+    "process": "^0.11.10",
+    "serve": "^13.0.2"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@splinetool/runtime": "^0.9.257",
+    "parcel": "^2.8.3",
+    "scss-reset": "^1.2.2",
+    "serve": "^13.0.2",
+    "shx": "^0.3.4"
+  }
+}
