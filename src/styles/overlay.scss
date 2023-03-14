@@ -41,13 +41,19 @@ aside {
       width: auto;
       margin-bottom: 0;
       transform: translateX(-100px);
+      @include mobile {
+        display: none;
+      }
     }
   }
-
   .footer-info {
     display: flex;
     flex-direction: row;
     gap: 30px;
+
+    @include mobile {
+      flex-direction: column;
+    }
 
     ul {
       justify-content: flex-start;
@@ -105,6 +111,11 @@ aside {
     }
   }
 
+  @include mobile {
+    gap: 15px;
+    padding: 0;
+  }
+
   p {
     margin-bottom: 15px;
     line-height: 150%;
@@ -118,11 +129,24 @@ aside {
     &.small {
       font-size: 15px;
     }
+
+    @include mobile {
+      font-size: 17px;
+      margin-bottom: 15px;
+
+      &.small {
+        font-size: 13px;
+      }
+    }
   }
   h6 {
     color: $grey;
     margin-bottom: 25px;
     font-weight: 700;
     font-size: 15px;
+    @include mobile {
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
   }
 }

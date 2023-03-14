@@ -25,8 +25,25 @@ $iconSize: 50px;
 $preloader: 100px;
 
 // Z-Index Layers
-$default: 1;
+
 $background: -1;
-$modal: 100;
+$default: 1;
 $overlay: 10;
+$modal: 100;
 $nav: 1000;
+$loader: 500;
+
+// Values
+$overlay-transparency: 0.9;
+
+// Mixins
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin overlay {
+  background-color: rgba($black, $overlay-transparency);
+  backdrop-filter: blur(10px);
+}

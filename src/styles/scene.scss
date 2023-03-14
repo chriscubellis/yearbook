@@ -1,62 +1,17 @@
 canvas {
   position: absolute;
-
   z-index: $default;
-}
-
-#overlay-controls {
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  background: none;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-
-  .icon {
-    position: absolute;
-    background: red;
-    width: $iconSize;
-    height: $iconSize;
-    pointer-events: all;
-    cursor: pointer;
-    &#sound {
-      top: $iconMargin;
-      right: $iconMargin;
-    }
-    &#back {
-      top: $iconMargin;
-      left: $iconMargin;
-    }
-  }
-  #sound {
-    top: 0;
-    right: 0;
-  }
+  cursor: pointer;
 }
 
 #preloader {
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: $overlay;
-  background: rgba($black, 0.85);
+  z-index: $loader;
   pointer-events: none;
-
-  #loading-progress {
-    text-align: center;
-    width: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    color: $grey-medium;
-    font-size: 12px;
-    display: none;
-  }
-
-  &.scene-loaded {
-    opacity: 0;
-  }
+  background: url("assets/images/background.svg");
+  background-size: cover;
+  background-position: center;
+  @include overlay;
 }

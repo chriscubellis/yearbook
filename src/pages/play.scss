@@ -1,0 +1,47 @@
+@import "../styles/variables";
+
+body {
+  background: $black;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  display: block;
+}
+
+header {
+  position: absolute;
+  padding: 30px;
+}
+
+.icon {
+  opacity: 0.66;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@import "../styles/loader-cubes";
+
+#preloader {
+  #progress {
+    text-align: center;
+    width: auto;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    color: $grey;
+    letter-spacing: 0.5px;
+    font-family: "Interface", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    .inactive {
+      display: none;
+    }
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+}

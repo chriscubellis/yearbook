@@ -2,6 +2,9 @@ html,
 body {
   background: $black;
   color: $white;
+  font-family: "Interface", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -15,10 +18,13 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-family: sans-serif;
   background: url("assets/images/background.svg");
   background-size: cover;
   background-position: center;
+
+  @include mobile {
+    padding: 25px 20px;
+  }
 }
 
 header,
@@ -44,6 +50,11 @@ header {
       display: inline-block;
       cursor: pointer;
     }
+    .icon {
+      width: 30px;
+      height: 30px;
+      position: relative;
+    }
     #logo {
       width: 28px;
       height: 36px;
@@ -52,9 +63,7 @@ header {
     }
     #info {
       background: url("./assets/images/icons/info.svg") no-repeat;
-      width: 30px;
-      height: 30px;
-      position: relative;
+
       &.open {
         background: url("./assets/images/icons/close.svg") no-repeat;
       }
@@ -73,6 +82,15 @@ header {
         &::before {
           opacity: 1;
         }
+      }
+    }
+    #back {
+      background: url("./assets/images/icons/back.svg") no-repeat;
+    }
+    #sound {
+      background: url("./assets/images/icons/sound-on.svg") no-repeat;
+      &.off {
+        background: url("./assets/images/icons/sound-off.svg") no-repeat;
       }
     }
   }

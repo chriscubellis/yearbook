@@ -1,0 +1,161 @@
+// das cube
+$size: 8px;
+
+// animation
+$easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$rotateX: 30deg;
+$rotateY: 15deg;
+$scale: 1.5;
+$speed: 0.75s;
+$stagger: 0.1s;
+$verticalMovement: 40px;
+
+#loader {
+  position: absolute;
+  height: calc(#{$size} * 2);
+  width: auto;
+  margin: 0 auto;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  perspective: 50vw;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+
+  .cube {
+    height: calc(#{$size} * 2);
+    width: calc(#{$size} * 2);
+    display: inline-block;
+    position: relative;
+    margin: 0 calc(#{$size} * 2);
+    transform-origin: 50% 50%;
+    transform-style: preserve-3d;
+    animation: bouncer $easing $speed infinite alternate;
+
+    .side {
+      position: absolute;
+      display: block;
+      height: calc(#{$size} * 2);
+      width: calc(#{$size} * 2);
+
+      &:nth-child(1) {
+        transform: translateZ($size);
+      }
+      &:nth-child(2) {
+        transform: rotateY(90deg) translateZ($size);
+      }
+      &:nth-child(3) {
+        transform: rotateY(180deg) translateZ($size);
+      }
+      &:nth-child(4) {
+        transform: rotateY(-90deg) translateZ($size);
+      }
+      &:nth-child(5) {
+        transform: rotateX(90deg) translateZ($size);
+      }
+      &:nth-child(6) {
+        transform: rotateX(-90deg) translateZ($size);
+      }
+    }
+
+    @keyframes bouncer {
+      from {
+      }
+      to {
+        transform: scale($scale) rotateX($rotateX) rotateY($rotateY)
+          translateY(-$verticalMovement) translateZ($size);
+      }
+    }
+
+    // below here lie only colors & shades & stags
+
+    &:nth-child(1) {
+      background: $green;
+      animation-delay: 0;
+
+      .side:nth-child(1) {
+        background: darken($green, 0%);
+      }
+      .side:nth-child(2),
+      .side:nth-child(3),
+      .side:nth-child(5),
+      .side:nth-child(6) {
+        background: darken($green, 40%);
+      }
+      .side:nth-child(4) {
+        background: darken($green, 20%);
+      }
+    }
+
+    &:nth-child(2) {
+      background: $blue;
+      animation-delay: calc(0s + (#{$stagger} * 1));
+
+      .side:nth-child(1) {
+        background: darken($blue, 0%);
+      }
+      .side:nth-child(2),
+      .side:nth-child(3),
+      .side:nth-child(5),
+      .side:nth-child(6) {
+        background: darken($blue, 40%);
+      }
+      .side:nth-child(4) {
+        background: darken($blue, 20%);
+      }
+    }
+
+    &:nth-child(3) {
+      background: $purple;
+      animation-delay: calc(0s + (#{$stagger} * 2));
+
+      .side:nth-child(1) {
+        background: darken($purple, 0%);
+      }
+      .side:nth-child(2),
+      .side:nth-child(3),
+      .side:nth-child(5),
+      .side:nth-child(6) {
+        background: darken($purple, 40%);
+      }
+      .side:nth-child(4) {
+        background: darken($purple, 20%);
+      }
+    }
+
+    &:nth-child(4) {
+      background: $red;
+      animation-delay: calc(0s + (#{$stagger} * 3));
+
+      .side:nth-child(1) {
+        background: darken($red, 0%);
+      }
+      .side:nth-child(2),
+      .side:nth-child(3),
+      .side:nth-child(5),
+      .side:nth-child(6) {
+        background: darken($red, 40%);
+      }
+      .side:nth-child(4) {
+        background: darken($red, 20%);
+      }
+    }
+
+    &:nth-child(5) {
+      background: $yellow;
+      animation-delay: calc(0s + (#{$stagger} * 4));
+      .side:nth-child(1) {
+        background: darken($yellow, 0%);
+      }
+      .side:nth-child(2),
+      .side:nth-child(3),
+      .side:nth-child(5),
+      .side:nth-child(6) {
+        background: darken($yellow, 40%);
+      }
+      .side:nth-child(4) {
+        background: darken($yellow, 20%);
+      }
+    }
+  }
+}

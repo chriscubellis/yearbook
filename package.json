@@ -6,6 +6,12 @@
     "start": "parcel index.html",
     "build": "shx rm -f .parcel-cache/* && parcel build index.html --dist-dir ./dist"
   },
+  "parcel": {
+    "entries": {
+      "index": "./index.html",
+      "play": "./src/pages/play.html"
+    }
+  },
   "devDependencies": {
     "@parcel/transformer-sass": "2.8.3",
     "buffer": "^5.5.0",

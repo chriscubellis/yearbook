@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>2013 GIPHY Yearbook</title>
+
+    <meta
+      name="description"
+      content="The 2023 GIPHY Staff Yearbook. A virtual world filled with coworkers and secrets."
+    />
+    <meta
+      name="keywords"
+      content="GIPHY, GIPHY Yearbook, GIFs, internet, giphy staff"
+    />
+    <meta name="author" content="Chris Cubellis, Dark Igloo, GIPHY" />
+
+    <link rel="stylesheet" href="../styles.scss" />
+    <link rel="stylesheet" href="play.scss" />
+  </head>
+  <body id="play">
+    <header>
+      <nav>
+        <a href="../../index.html" class="icon" id="back" alt="Close icon"></a>
+
+        <a
+          href="#"
+          id="sound"
+          class="icon"
+          alt="A small icon depicting a lowercase 'i' inside a circle used to indicate additional information or details."
+        ></a>
+
+        <a
+          href="#"
+          id="info"
+          class="icon"
+          alt="A small icon depicting a lowercase 'i' inside a circle used to indicate additional information or details."
+        ></a>
+      </nav>
+    </header>
+
+    <canvas
+      id="canvas3d"
+      alt="3D interactive scene featuring a cute kitty. The cat is controlled with the keyboard and can boop objects and explore employee yearbook cubes"
+    ></canvas>
+
+    <div id="preloader">
+      <div id="loader">
+        <div class="cube">
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+        </div>
+        <div class="cube">
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+        </div>
+        <div class="cube">
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+        </div>
+        <div class="cube">
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+        </div>
+        <div class="cube">
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+          <div class="side"></div>
+        </div>
+      </div>
+      <div id="progress">
+        <div id="download">
+          <span id="download-label">Downloading...</span>
+          <span id="download-percentage">0%</span>
+        </div>
+        <div id="processing" class="inactive">
+          <span id="processing-label">Processing...</span>
+        </div>
+        <div id="build" class="inactive">
+          <span id="build-label">Building...</span>
+          <span id="build-percentage">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Import maps polyfill -->
+    <!-- Remove this when import maps will be widely supported -->
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"
+    ></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "@splinetool/runtime": "https://unpkg.com/@splinetool/runtime@0.9.257/build/runtime.js"
+        }
+      }
+    </script>
+    <script type="module" src="../pages/play.js"></script>
+  </body>
+</html>
