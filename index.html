@@ -3,19 +3,151 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Welcome to GIPHY Yearbook 2023! Home of the 2023 lineup of GIPHY staff."
+    />
+    <meta
+      name="keywords"
+      content="GIPHY, GIPHY Yearbook, GIFs, internet, giphy staff"
+    />
+    <meta name="author" content="Chris Cubellis, Dark Igloo, GIPHY" />
+
     <link rel="stylesheet" href="./src/styles.scss" />
   </head>
   <body>
-    <canvas id="canvas3d"></canvas>
+    <header>
+      <nav>
+        <a
+          href="https://giphy.com/about"
+          id="logo"
+          alt="Colorful icon with the word 'Giphy' written in large white letters"
+        ></a>
+        <a
+          href="#"
+          id="info"
+          alt="A small icon depicting a lowercase 'i' inside a circle used to indicate additional information or details."
+        ></a>
+      </nav>
+    </header>
 
-    <div id="overlay-controls">
-      <div class="icon" id="sound"></div>
-      <div class="icon" id="back"></div>
-    </div>
+    <main>
+      <img
+        src="./src/assets/images/graphic.svg"
+        alt="PNG graphic of large text reading 'GIPHY' in white, 'YEARBOOK' in pink, and '2023' in green on a transparent background."
+      />
+
+      <ul id="controls">
+        <li>
+          <img
+            src="./src/assets/images/icons/arrows.svg"
+            alt="Keyboard arrow keys icon indicating directional navigation options."
+          />
+          <h5>Move</h5>
+        </li>
+        <li>
+          <img
+            src="./src/assets/images/icons/spacebar.svg"
+            alt="Keyboard spacebar icon indicating jump navigation"
+          />
+          <h5>Jump</h5>
+        </li>
+        <li>
+          <img
+            src="./src/assets/images/icons/mouse.svg"
+            alt="Computer mouse icon indicating clicking"
+          />
+          <h5>Smash</h5>
+        </li>
+      </ul>
+
+      <a href="#">
+        <button>Find Yourself</button>
+      </a>
+
+      <canvas
+        id="canvas3d"
+        alt="3d kitty cat who is eyeing the cursor as it moves around the screen"
+      ></canvas>
+    </main>
+
+    <footer>
+      <img
+        src="./src/assets/images/icons/wifi.svg"
+        alt="WiFi signal error icon indicating low wireless network connection."
+      />
+      <p>Slower connections may take longer to load</p>
+    </footer>
 
     <div id="preloader">
       <div id="loading-progress"></div>
     </div>
+
+    <aside id="overlay">
+      <div class="overlay-content">
+        <section class="intro">
+          <img src="./src/assets/images/cat.png" alt="" />
+
+          <h6>Welcome to the GIPHY 2023 Staff Yearbook!</h6>
+          <p>
+            Embrace your inner kitty-cat & explore our virtual space to find
+            your staff portrait on one of the many cubes scattered throughout
+            the scene.
+          </p>
+          <p>
+            While at it, keep your whiskers raised and sniff (or smash) around
+            each & every corner to uncover hidden secrets and surprises to
+            upgrade your charcater along the way.
+          </p>
+          <p>For bonus points, Capture a gif your cube to upload to GIPHY.</p>
+        </section>
+        <section class="footer-info">
+          <section class="more-info">
+            <h6>More Info</h6>
+            <p class="small">
+              Read about the process behind this year's yearbook
+              <a href="#">here</a>.
+            </p>
+          </section>
+          <section>
+            <h6>All Years</h6>
+            <ul>
+              <li>
+                <a href="https://giphy.com/collections/staff-yearbook-2016/"
+                  >'16</a
+                >
+              </li>
+              <li>
+                <a href="https://giphy.com/collections/staff-yearbook-2017/"
+                  >&#39;17</a
+                >
+              </li>
+              <li>
+                <a href="https://giphy.com/collections/staff-yearbook-2018/"
+                  >&#39;18</a
+                >
+              </li>
+              <li>
+                <a href="https://giphy.com/collections/staff-yearbook-2019/"
+                  >&#39;19</a
+                >
+              </li>
+              <li>
+                <a href="https://giphy.com/collections/staff-yearbook-2020/"
+                  >&#39;20</a
+                >
+              </li>
+              <li>
+                <a href="https://giphy.com/collections/staff-yearbook-2021/"
+                  >&#39;23</a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </aside>
 
     <!-- Import maps polyfill -->
     <!-- Remove this when import maps will be widely supported -->
