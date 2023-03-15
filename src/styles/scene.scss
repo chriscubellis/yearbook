@@ -14,4 +14,7 @@ canvas {
   background-size: cover;
   background-position: center;
   @include overlay;
+  &.hidden {
+    opacity: 0;
+  }
 }

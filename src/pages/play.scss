@@ -11,12 +11,60 @@ body {
 header {
   position: absolute;
   padding: 30px;
+
+  nav {
+    #controller {
+      background: url("../assets/images/icons/controller.svg") no-repeat;
+      position: relative;
+
+      ul {
+        position: absolute;
+        width: auto;
+        height: 150px;
+        bottom: -175px;
+        right: -8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 10px;
+        visibility: hidden;
+
+        #keyboard {
+          background: url("../assets/images/icons/arrows.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+
+        #spacebar {
+          background: url("../assets/images/icons/spacebar.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+
+        #mouse {
+          background: url("../assets/images/icons/mouse.svg") no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
+
+        .icon {
+          width: 42px;
+          height: 42px;
+        }
+      }
+      &:hover {
+        ul {
+          visibility: unset;
+        }
+      }
+    }
+  }
 }
 
 .icon {
-  opacity: 0.66;
+  opacity: $icon-opacity;
   &:hover {
-    opacity: 1;
+    opacity: $icon-hover-opacity;
   }
 }
 
@@ -40,8 +88,21 @@ header {
       display: none;
     }
   }
+  footer {
+    bottom: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
-  &.hidden {
-    opacity: 0;
+.hidden {
+  opacity: 0;
+}
+
+body:not(.scene-loaded) {
+  #sound,
+  #controller {
+    display: none;
   }
 }

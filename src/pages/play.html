@@ -33,10 +33,16 @@
 
         <a
           href="#"
-          id="info"
+          id="controller"
           class="icon"
           alt="A small icon depicting a lowercase 'i' inside a circle used to indicate additional information or details."
-        ></a>
+        >
+          <ul>
+            <li id="keyboard" class="icon"></li>
+            <li id="spacebar" class="icon"></li>
+            <li id="mouse" class="icon"></li>
+          </ul>
+        </a>
       </nav>
     </header>
 
@@ -90,17 +96,25 @@
       </div>
       <div id="progress">
         <div id="download">
-          <span id="download-label">Downloading...</span>
+          <span id="download-label">Downloading Catnip...</span>
           <span id="download-percentage">0%</span>
         </div>
         <div id="processing" class="inactive">
-          <span id="processing-label">Processing...</span>
+          <span id="processing-label">Processing Boxes...</span>
+          <span id="processing-percentage"></span>
         </div>
         <div id="build" class="inactive">
-          <span id="build-label">Building...</span>
-          <span id="build-percentage">0%</span>
+          <span id="build-label"></span>
+          <span id="build-percentage"></span>
         </div>
       </div>
+      <footer>
+        <img
+          src="../assets/images/icons/wifi.svg"
+          alt="WiFi signal error icon indicating low wireless network connection."
+        />
+        <p>Slower connections may take longer to load</p>
+      </footer>
     </div>
 
     <!-- Import maps polyfill -->

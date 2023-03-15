@@ -22,6 +22,9 @@ fetch("https://prod.spline.design/ce5eVkNRvwPHJM6H/scene.splinecode")
 
         var processing = document.getElementById("processing");
         var processingLabel = document.getElementById("processing-label");
+        var processingPercentage = document.getElementById(
+          "processing-percentage"
+        );
 
         var build = document.getElementById("build");
         var buildLabel = document.getElementById("build-label");
@@ -44,24 +47,15 @@ fetch("https://prod.spline.design/ce5eVkNRvwPHJM6H/scene.splinecode")
 
         var buildProgress = 0;
 
-        // Display initial progress value
-        buildPercentage.textContent = `${buildProgress}%`;
-
         spline.load(url).then(() => {
           console.log("😻 Ready Player One");
 
-          // Build progress loop
-          var buildInterval = setInterval(function () {
-            buildProgress += 1;
-            if (buildProgress > 100) {
-              clearInterval(buildInterval);
-              setTimeout(function () {
-                loader.classList.add("hidden");
-              }, 2000);
-            } else {
-              buildPercentage.textContent = `${buildProgress}%`;
-            }
-          }, 100);
+          buildProgress = 100;
+
+          setTimeout(function () {
+            loader.classList.add("hidden");
+            document.body.classList.add("scene-loaded");
+          }, 0);
         });
 
         return;

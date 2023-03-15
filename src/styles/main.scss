@@ -46,21 +46,29 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: $nav;
+
     a {
       display: inline-block;
       cursor: pointer;
     }
+
     .icon {
       width: 30px;
       height: 30px;
       position: relative;
+      opacity: $icon-opacity;
+      &:hover {
+        opacity: $icon-hover-opacity;
+      }
     }
+
     #logo {
       width: 28px;
       height: 36px;
       background: url("./assets/images/logo.svg") no-repeat center;
       background-size: contain;
     }
+
     #info {
       background: url("./assets/images/icons/info.svg") no-repeat;
 
@@ -84,12 +92,16 @@ header {
         }
       }
     }
+
     #back {
       background: url("./assets/images/icons/back.svg") no-repeat;
     }
+
     #sound {
       background: url("./assets/images/icons/sound-on.svg") no-repeat;
-      &.off {
+
+      &.off,
+      &:hover {
         background: url("./assets/images/icons/sound-off.svg") no-repeat;
       }
     }

@@ -15,8 +15,7 @@ fetch("https://prod.spline.design/tX2Dq5nCW6mA6MKs/scene.splinecode")
         const blob = new Blob(chunks);
         const url = URL.createObjectURL(blob);
         spline.load(url).then(() => {
-          console.log("Ready Player One 🐱");
-          document.getElementById("preloader").classList.add("scene-loaded");
+          document.getElementById("preloader").classList.add("hidden");
         });
         return;
       }
@@ -25,10 +24,7 @@ fetch("https://prod.spline.design/tX2Dq5nCW6mA6MKs/scene.splinecode")
       console.log(
         `Loading... ${Math.round((receivedLength / contentLength) * 100)}%`
       );
-      // Update the loading progress percentage on the UI
-      // document.getElementById("loading-progress").textContent = `${Math.round(
-      //   (receivedLength / contentLength) * 100
-      // )}%`;
+
       return reader.read().then(processResult);
     });
   })
