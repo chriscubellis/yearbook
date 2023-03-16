@@ -1,4 +1,3 @@
-```
 # GIPHY Yearbook 2023 :tada:
 
 GIPHY Yearbook 2023 is a fun and interactive 3D scene showcasing the best GIFs of the year. It's built using [Parcel](https://parceljs.org/) and powered by [Spline](https://spline.design/).
@@ -78,4 +77,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-```
