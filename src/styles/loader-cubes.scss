@@ -10,9 +10,28 @@ $speed: 0.75s;
 $stagger: 0.1s;
 $verticalMovement: 40px;
 
+/* Replace SCSS variables with CSS variables */
+
+:root {
+  --size: 8px;
+  --easing: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --speed: 0.666s;
+  --scale: 1.5;
+  --rotateX: 30deg;
+  --rotateY: 15deg;
+  --verticalMovement: 35px;
+  --stagger: 0.05s;
+  --green: #{$green};
+  --blue: #{$blue};
+  --purple: #{$purple};
+  --red: #{$red};
+  --yellow: #{$yellow};
+}
+
+/* Simplify and convert SCSS to CSS */
 #loader {
   position: absolute;
-  height: calc(#{$size} * 2);
+  height: calc(var(--size) * 2);
   width: auto;
   margin: 0 auto;
   left: 50%;
@@ -21,141 +40,33 @@ $verticalMovement: 40px;
   perspective: 50vw;
   text-align: center;
   transition: 0.3s ease-in-out;
+}
 
-  .cube {
-    height: calc(#{$size} * 2);
-    width: calc(#{$size} * 2);
-    display: inline-block;
-    position: relative;
-    margin: 0 calc(#{$size} * 2);
-    transform-origin: 50% 50%;
-    transform-style: preserve-3d;
-    animation: bouncer $easing $speed infinite alternate;
+.cube {
+  height: calc(var(--size) * 2);
+  width: calc(var(--size) * 2);
+  display: inline-block;
+  position: relative;
+  margin: 0 calc(var(--size) * 2);
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  animation: bouncer var(--easing) var(--speed) infinite alternate;
+}
 
-    .side {
-      position: absolute;
-      display: block;
-      height: calc(#{$size} * 2);
-      width: calc(#{$size} * 2);
+.side {
+  position: absolute;
+  display: block;
+  height: calc(var(--size) * 2);
+  width: calc(var(--size) * 2);
+}
 
-      &:nth-child(1) {
-        transform: translateZ($size);
-      }
-      &:nth-child(2) {
-        transform: rotateY(90deg) translateZ($size);
-      }
-      &:nth-child(3) {
-        transform: rotateY(180deg) translateZ($size);
-      }
-      &:nth-child(4) {
-        transform: rotateY(-90deg) translateZ($size);
-      }
-      &:nth-child(5) {
-        transform: rotateX(90deg) translateZ($size);
-      }
-      &:nth-child(6) {
-        transform: rotateX(-90deg) translateZ($size);
-      }
-    }
-
-    @keyframes bouncer {
-      from {
-      }
-      to {
-        transform: scale($scale) rotateX($rotateX) rotateY($rotateY)
-          translateY(-$verticalMovement) translateZ($size);
-      }
-    }
-
-    // below here lie only colors & shades & stags
-
-    &:nth-child(1) {
-      background: $green;
-      animation-delay: 0;
-
-      .side:nth-child(1) {
-        background: darken($green, 0%);
-      }
-      .side:nth-child(2),
-      .side:nth-child(3),
-      .side:nth-child(5),
-      .side:nth-child(6) {
-        background: darken($green, 40%);
-      }
-      .side:nth-child(4) {
-        background: darken($green, 20%);
-      }
-    }
-
-    &:nth-child(2) {
-      background: $blue;
-      animation-delay: calc(0s + (#{$stagger} * 1));
-
-      .side:nth-child(1) {
-        background: darken($blue, 0%);
-      }
-      .side:nth-child(2),
-      .side:nth-child(3),
-      .side:nth-child(5),
-      .side:nth-child(6) {
-        background: darken($blue, 40%);
-      }
-      .side:nth-child(4) {
-        background: darken($blue, 20%);
-      }
-    }
-
-    &:nth-child(3) {
-      background: $purple;
-      animation-delay: calc(0s + (#{$stagger} * 2));
-
-      .side:nth-child(1) {
-        background: darken($purple, 0%);
-      }
-      .side:nth-child(2),
-      .side:nth-child(3),
-      .side:nth-child(5),
-      .side:nth-child(6) {
-        background: darken($purple, 40%);
-      }
-      .side:nth-child(4) {
-        background: darken($purple, 20%);
-      }
-    }
-
-    &:nth-child(4) {
-      background: $red;
-      animation-delay: calc(0s + (#{$stagger} * 3));
-
-      .side:nth-child(1) {
-        background: darken($red, 0%);
-      }
-      .side:nth-child(2),
-      .side:nth-child(3),
-      .side:nth-child(5),
-      .side:nth-child(6) {
-        background: darken($red, 40%);
-      }
-      .side:nth-child(4) {
-        background: darken($red, 20%);
-      }
-    }
-
-    &:nth-child(5) {
-      background: $yellow;
-      animation-delay: calc(0s + (#{$stagger} * 4));
-      .side:nth-child(1) {
-        background: darken($yellow, 0%);
-      }
-      .side:nth-child(2),
-      .side:nth-child(3),
-      .side:nth-child(5),
-      .side:nth-child(6) {
-        background: darken($yellow, 40%);
-      }
-      .side:nth-child(4) {
-        background: darken($yellow, 20%);
-      }
-    }
+/* Keyframes */
+@keyframes bouncer {
+  from {
+  }
+  to {
+    transform: scale(var(--scale)) rotateX(var(--rotateX))
+      rotateY(var(--rotateY)) translateY(calc(-1 * var(--verticalMovement)))
+      translateZ(var(--size));
   }
 }

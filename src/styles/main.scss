@@ -5,6 +5,12 @@ body {
   font-family: "Interface", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  @include mobile {
+    min-height: 100vh; /* fallback for Js load */
+  }
 }
 
 ::selection {
@@ -24,6 +30,8 @@ body {
 
   @include mobile {
     padding: 25px 20px;
+    justify-content: flex-start;
+    gap: 5vh;
   }
 }
 
@@ -105,6 +113,10 @@ main {
     transform: translateY(-15%) scale(1.2);
     width: 100%;
     height: 100%;
+    @include mobile {
+      transform: translateY(-20%) scale(1.6);
+      z-index: $default;
+    }
   }
 
   img {
@@ -113,6 +125,9 @@ main {
 
   #yearbook-branding {
     width: 80%;
+    @include mobile {
+      width: 100%;
+    }
   }
 
   ul {
@@ -145,6 +160,11 @@ main {
         }
       }
     }
+  }
+
+  #play {
+    position: relative;
+    z-index: $modal;
   }
 }
 

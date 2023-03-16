@@ -1,6 +1,11 @@
 import { Application } from "@splinetool/runtime";
 import SceneUrl from "url:../assets/models/scene.splinecode";
 
+import { loader } from "../scripts/loader.js";
+
+// Call the loader() function
+loader();
+
 const canvas = document.getElementById("canvas3d");
 
 const spline = new Application(canvas);

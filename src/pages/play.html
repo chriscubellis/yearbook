@@ -24,6 +24,21 @@
       href="../assets/images/icons/sound-off.svg"
       as="image"
     />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PF16X8PG6P"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-PF16X8PG6P");
+    </script>
   </head>
   <body id="play">
     <header>
@@ -58,48 +73,7 @@
     ></canvas>
 
     <div id="preloader">
-      <div id="loader">
-        <div class="cube">
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-        </div>
-        <div class="cube">
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-        </div>
-        <div class="cube">
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-        </div>
-        <div class="cube">
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-        </div>
-        <div class="cube">
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-          <div class="side"></div>
-        </div>
-      </div>
+      <div id="loader"></div>
       <div id="progress">
         <div id="download">
           <span id="download-label">Downloading Catnip...</span>
