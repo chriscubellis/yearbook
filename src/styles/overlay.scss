@@ -39,8 +39,12 @@ aside {
     img {
       height: 200px;
       width: auto;
-      margin-bottom: 0;
+      margin-bottom: -25px;
       transform: translateX(-100px);
+      transition: 0.33s ease-in-out;
+      &:hover {
+        filter: hue-rotate(270deg) brightness(2);
+      }
       @include mobile {
         display: none;
       }

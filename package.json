@@ -1,10 +1,12 @@
 {
   "name": "giphy-staff-yearbook-2023",
   "version": "1.0.0",
-  "description": "Scene exported with Spline",
+  "description": "GIPHY Yearbook 2023",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "shx rm -f .parcel-cache/* && parcel build index.html --dist-dir ./dist"
+    "clean": "shx rm -rf .parcel-cache/* dist/*",
+    "prebuild": "yarn run clean",
+    "build": "parcel build index.html --dist-dir ./dist",
+    "start": "parcel index.html"
   },
   "parcel": {
     "entries": {

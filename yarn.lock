@@ -716,9 +716,9 @@
     nullthrows "^1.1.1"
 
 "@splinetool/runtime@^0.9.257":
-  version "0.9.263"
-  resolved "https://registry.yarnpkg.com/@splinetool/runtime/-/runtime-0.9.263.tgz#2a74b5062448cd43533df8fc990dc9e285435bde"
-  integrity sha512-odlkxpVajfrhzOOP1wuY7J7jW1Rt/LwZW4yJSsm1EYcZq7ljzaRRcHeNqpLgVM49ff0X5R1GKcgPAGt3CVweLw==
+  version "0.9.264"
+  resolved "https://registry.yarnpkg.com/@splinetool/runtime/-/runtime-0.9.264.tgz#a8e6068b90f074bac196b5239c3290d5b3dc8bd7"
+  integrity sha512-K1oPn1yBTtwkfZExytMIyxOBm1KtIGD63pyo02eoH+0ZjvtUFzWeLRCUxN+VyWH4a65R8NdvKidHsqwCIhl9xQ==
   dependencies:
     on-change "^4.0.0"
     semver-compare "^1.0.0"
@@ -1156,9 +1156,9 @@ dotenv@^7.0.0:
   integrity sha512-M3NhsLbV1i6HuGzBUH8vXrtxOk+tWmzWKDMbAVSUp3Zsjm7ywFeuwrUXhmhQyRK1q5B5GGy7hcXPbj3bnfZg2g==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.330"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.330.tgz#4740378db7160d7210afb29800c74048cdf10a99"
-  integrity sha512-PqyefhybrVdjAJ45HaPLtuVaehiSw7C3ya0aad+rvmV53IVyXmYRk3pwIOb2TxTDTnmgQdn46NjMMaysx79/6Q==
+  version "1.4.332"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.332.tgz#b981fcf61587abe03c24b301b2cfbdcc2b70e8a5"
+  integrity sha512-c1Vbv5tuUlBFp0mb3mCIjw+REEsgthRgNE8BlbEDKmvzb8rxjcVki6OkQP83vLN34s0XCxpSkq7AZNep1a6xhw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"

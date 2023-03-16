@@ -112,6 +112,7 @@ main {
   flex-direction: column;
   position: relative;
   gap: 20px;
+  max-width: 80vh;
 
   canvas {
     transform: translateY(-15%);
@@ -146,6 +147,7 @@ main {
         width: 100%;
         color: $grey-medium;
         font-weight: bold;
+        pointer-events: none;
       }
       &:hover {
         img {
@@ -202,8 +204,10 @@ footer {
   margin: 0 auto;
   flex-direction: column;
   gap: 10px;
+  pointer-events: none;
   p {
     color: $grey-medium;
     font-size: 15px;
+    pointer-events: none;
   }
 }
