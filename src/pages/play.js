@@ -1,9 +1,10 @@
 import { Application } from "@splinetool/runtime";
+import SceneUrl from "url:../assets/models/scene.splinecode";
 
 const canvas = document.getElementById("canvas3d");
 
 const spline = new Application(canvas);
-fetch("https://prod.spline.design/ce5eVkNRvwPHJM6H/scene.splinecode")
+fetch(SceneUrl)
   .then((response) => {
     const reader = response.body.getReader();
     const contentLength = response.headers.get("Content-Length");
@@ -73,6 +74,25 @@ fetch("https://prod.spline.design/ce5eVkNRvwPHJM6H/scene.splinecode")
       ).textContent = `${Math.round((receivedLength / contentLength) * 100)}%`;
       return reader.read().then(processResult);
     });
+
+    // Toggle Soundtrack
+    function toggleSound() {
+      const soundElement = document.querySelector("#sound");
+      const sceneSound = spline.findObjectByName("Scene Sound Controller");
+
+      if (soundElement.classList.contains("muted")) {
+        // Remove muted class and emit mouseUp event
+        soundElement.classList.remove("muted");
+        sceneSound.emitEvent("mouseUp");
+      } else {
+        // Add muted class and emit mouseDown event
+        soundElement.classList.add("muted");
+        sceneSound.emitEvent("mouseDown");
+      }
+    }
+
+    // Add event listener to the element with the ID "sound"
+    document.querySelector("#sound").addEventListener("click", toggleSound);
   })
   .catch((error) => {
     console.error(error);

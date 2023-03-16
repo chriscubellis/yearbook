@@ -1,9 +1,10 @@
 import { Application } from "@splinetool/runtime";
+import SplineUrl from "url:./assets/models/splash.splinecode";
 
 const canvas = document.getElementById("canvas3d");
 
 const spline = new Application(canvas);
-fetch("https://prod.spline.design/tX2Dq5nCW6mA6MKs/scene.splinecode")
+fetch(SplineUrl)
   .then((response) => {
     const reader = response.body.getReader();
     const contentLength = response.headers.get("Content-Length");
