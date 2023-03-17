@@ -15,9 +15,7 @@ fetch(SplineUrl)
       if (result.done) {
         const blob = new Blob(chunks);
         const url = URL.createObjectURL(blob);
-        spline.load(url).then(() => {
-          document.getElementById("preloader").classList.add("hidden");
-        });
+        spline.load(url).then(() => {});
         return;
       }
       chunks.push(result.value);
@@ -41,3 +39,19 @@ overlayIcon.addEventListener("click", function () {
   overlay.classList.toggle("open");
   console.log("ding");
 });
+
+// mobile warning
+import { mobileWarning, mobileShare } from "./scripts/mobile.js";
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (isMobileDevice()) {
+    mobileWarning();
+    mobileShare();
+  }
+});
+
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+}

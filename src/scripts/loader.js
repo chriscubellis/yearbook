@@ -24,6 +24,7 @@ export function loader() {
     const cube = document.createElement("div");
     cube.classList.add("cube");
     cube.style.animationDelay = `${i * 0.2}s`;
+    cube.style.webkitAnimationDelay = `${i * 0.2}s`;
     cube.style.background = colors[i].value;
 
     for (let j = 0; j < 6; j++) {

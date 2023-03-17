@@ -29,8 +29,7 @@ body {
   background-position: center;
 
   @include mobile {
-    padding: 25px 20px;
-    justify-content: flex-start;
+    padding: 25px 20px 100px 20px;
     gap: 5vh;
   }
 }
@@ -127,6 +126,7 @@ main {
     width: 80%;
     @include mobile {
       width: 100%;
+      max-width: 50vh;
     }
   }
 
@@ -160,6 +160,10 @@ main {
         }
       }
     }
+
+    @include mobile() {
+      display: none;
+    }
   }
 
   #play {
@@ -188,6 +192,11 @@ button {
   transition: color 0.33s ease-in-out;
 
   $darkPurpleShifted: adjust-hue($darkPurple, 20deg);
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 
   &:hover {
     box-shadow: -6px 6px 0px $darkPurpleShifted, -6px 6px 0px $darkPurpleShifted,

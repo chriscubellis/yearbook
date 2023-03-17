@@ -55,7 +55,7 @@
       <img
         src="./src/assets/images/graphic.svg"
         id="yearbook-branding"
-        alt="PNG graphic of large text reading 'GIPHY' in white, 'YEARBOOK' in pink, and '2023' in green on a transparent background."
+        alt="SVG graphic of large text reading 'GIPHY' in white, 'YEARBOOK' in pink, and '2023' in green on a transparent background."
       />
 
       <ul id="controls">
@@ -76,7 +76,7 @@
         <li>
           <img
             src="./src/assets/images/icons/mouse.svg"
-            alt="Computer mouse icon indicating clicking"
+            alt="Computer mouse icon indicating click interaactions"
           />
           <h5>Interact</h5>
         </li>
@@ -100,16 +100,12 @@
       <p>Slower connections may take longer to load</p>
     </footer>
 
-    <div id="preloader">
-      <div id="loading-progress"></div>
-    </div>
-
     <aside id="overlay">
       <div class="overlay-content">
         <section class="intro">
           <img src="./src/assets/images/cat.png" alt="" />
 
-          <h6>Welcome to the 2023 GIPHY Yearbook!</h6>
+          <h6>Welcome to the 2023 Yearbook</h6>
 
           <p>
             Embrace your inner kitty-cat & explore our virtual space to find
@@ -126,10 +122,10 @@
           <section class="more-info">
             <h6>Learn More</h6>
             <p class="small">
-              <a href="#">Read about the process</a> behind this yearbook.
+              <a href="#">Read about the process</a> behind this year's book.
             </p>
           </section>
-          <section>
+          <section class="previous-years">
             <h6>Past Yearbooks</h6>
             <ul>
               <li>
@@ -165,6 +161,21 @@
             </ul>
           </section>
         </section>
+      </div>
+    </aside>
+
+    <aside class="slide-up" id="mobile-warning">
+      <a href="#" id="close"></a>
+      <div class="modal-content">
+        <h6>Desktop Detour!</h6>
+        <p>
+          For the grooviest yearbook experience, open this on your laptop
+          device.
+        </p>
+        <a id="share-link" href="#">
+          <button>Copy Link</button>
+        </a>
+        <a id="play-anyways" href="./src/pages/play.html">Play Anyways</a>
       </div>
     </aside>
 
