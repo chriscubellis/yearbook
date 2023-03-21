@@ -110,6 +110,49 @@ header {
       }
     }
 
+    ul.sidebar {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      height: auto;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      display: flex;
+
+      background-color: $glass;
+      border-radius: 52px;
+      padding: 20px;
+
+      width: auto;
+
+      #camera {
+        background: url("../src/assets/images/icons/camera.svg") no-repeat;
+        background-size: 75%;
+        background-position: center;
+      }
+
+      #zoom-in {
+        background: url("../src/assets/images/icons/zoom-in.svg") no-repeat;
+        background-size: 75%;
+        background-position: center;
+      }
+
+      #zoom-out {
+        background: url("../src/assets/images/icons/zoom-out.svg") no-repeat;
+        background-size: 75%;
+        background-position: center;
+      }
+
+      li.icon {
+        width: 36px;
+        height: 36px;
+        background: white;
+      }
+    }
+
     & > .icon {
       border-radius: 20px;
       padding: 28px;
@@ -162,12 +205,4 @@ header {
 
 .hidden {
   opacity: 0;
-}
-
-body:not(.scene-loaded) {
-  #sound,
-  #controller,
-  #fullscreen {
-    display: none;
-  }
 }

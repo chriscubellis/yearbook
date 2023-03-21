@@ -26,6 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "@splinetool/runtime": "^0.9.257",
+    "canvas-capture": "^2.0.6",
     "howler": "^2.2.3",
     "parcel": "^2.8.3",
     "scss-reset": "^1.2.2",

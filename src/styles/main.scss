@@ -18,6 +18,10 @@ body {
   background-color: $indigo;
 }
 
+img {
+  user-select: none;
+}
+
 body {
   padding: 30px;
   display: flex;

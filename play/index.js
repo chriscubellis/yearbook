@@ -1,121 +1,162 @@
 import { Application } from "@splinetool/runtime";
 import SceneUrl from "url:../src/assets/models/scene.splinecode";
+import { CanvasCapture } from "canvas-capture";
 
 import { loader } from "../src/scripts/loader.js";
-
-// Call the loader() function
-loader();
 
 const canvas = document.getElementById("canvas3d");
 
 const spline = new Application(canvas);
-fetch(SceneUrl)
-  .then((response) => {
-    const reader = response.body.getReader();
+loader();
+
+async function loadScene() {
+  try {
+    const response = await fetch(SceneUrl);
     const contentLength = response.headers.get("Content-Length");
+    const reader = response.body.getReader();
     let receivedLength = 0;
     let chunks = [];
-    let decoding = new TextDecoder();
+    const decoding = new TextDecoder();
 
-    reader.read().then(function processResult(result) {
-      if (result.done) {
-        const blob = new Blob(chunks);
-        const url = URL.createObjectURL(blob);
-
-        var download = document.getElementById("download");
-        var downloadLabel = document.getElementById("download-label");
-        var downloadPercentage = document.getElementById("download-percentage");
-
-        var processing = document.getElementById("processing");
-        var processingLabel = document.getElementById("processing-label");
-        var processingPercentage = document.getElementById(
-          "processing-percentage"
-        );
-
-        var build = document.getElementById("build");
-        var buildLabel = document.getElementById("build-label");
-        var buildPercentage = document.getElementById("build-percentage");
-
-        var loader = document.getElementById("preloader");
-
-        download.classList.add("inactive");
-
-        // "Preparing Build..." loop
-        var preparingBuildInterval = setInterval(function () {
-          if (buildProgress === 0) {
-            processing.classList.remove("inactive");
-          } else {
-            clearInterval(preparingBuildInterval);
-            processing.classList.add("inactive");
-            build.classList.remove("inactive");
-          }
-        }, 100);
-
-        var buildProgress = 0;
-
-        spline.load(url).then(() => {
-          console.log("😻 Ready Player One");
-
-          buildProgress = 100;
-
-          setTimeout(function () {
-            loader.classList.add("hidden");
-            document.body.classList.add("scene-loaded");
-          }, 0);
-        });
-
-        return;
-      }
+    while (true) {
+      const result = await reader.read();
+      if (result.done) break;
       chunks.push(result.value);
       receivedLength += result.value.length;
 
-      console.log(
-        `🐱 Loading... ${Math.round((receivedLength / contentLength) * 100)}%`
-      );
+      const percentage = Math.round((receivedLength / contentLength) * 100);
 
       // Update the loading progress percentage on the UI
       document.getElementById(
         "download-percentage"
-      ).textContent = `${Math.round((receivedLength / contentLength) * 100)}%`;
-      return reader.read().then(processResult);
-    });
-
-    // Toggle Soundtrack
-    function toggleSound() {
-      const soundElement = document.querySelector("#sound");
-      const sceneSound = spline.findObjectByName("Scene Sound Controller");
-
-      if (soundElement.classList.contains("muted")) {
-        // Remove muted class and emit mouseUp event
-        soundElement.classList.remove("muted");
-        sceneSound.emitEvent("mouseUp");
-      } else {
-        // Add muted class and emit mouseDown event
-        soundElement.classList.add("muted");
-        sceneSound.emitEvent("mouseDown");
-      }
+      ).textContent = `${percentage}%`;
     }
-    document.querySelector("#sound").addEventListener("click", toggleSound);
 
-    // Toggle Fullscreen
-    function toggleFullScreen() {
-      const fullScreenElement = document.querySelector("#fullscreen");
+    const blob = new Blob(chunks);
+    const url = URL.createObjectURL(blob);
 
-      if (fullScreenElement.classList.contains("active")) {
-        console.log("exiting full screen");
-        document.exitFullscreen();
-        fullScreenElement.classList.remove("active");
+    const download = document.getElementById("download");
+    const downloadLabel = document.getElementById("download-label");
+    const downloadPercentage = document.getElementById("download-percentage");
+
+    const processing = document.getElementById("processing");
+    const processingLabel = document.getElementById("processing-label");
+    const processingPercentage = document.getElementById(
+      "processing-percentage"
+    );
+
+    const build = document.getElementById("build");
+    const buildLabel = document.getElementById("build-label");
+    const buildPercentage = document.getElementById("build-percentage");
+
+    const loader = document.getElementById("preloader");
+
+    download.classList.add("inactive");
+
+    // "Preparing Build..." loop
+    let buildProgress = 0;
+    const preparingBuildInterval = setInterval(function () {
+      if (buildProgress === 0) {
+        processing.classList.remove("inactive");
       } else {
-        console.log("requesting full screen");
-        document.documentElement.requestFullscreen();
-        fullScreenElement.classList.add("active");
+        clearInterval(preparingBuildInterval);
+        processing.classList.add("inactive");
+        build.classList.remove("inactive");
       }
-    }
-    document
-      .querySelector("#fullscreen")
-      .addEventListener("click", toggleFullScreen);
-  })
+    }, 100);
 
-  .catch((error) => {
+    await spline.load(url);
+    console.log("😻 Ready Player One");
+
+    buildProgress = 100;
+
+    setTimeout(function () {
+      loader.classList.add("hidden");
+      document.body.classList.add("scene-loaded");
+      capture();
+    }, 0);
+
+    // kitty lives counter
+    function deathCounter() {
+      const kitty = spline.findObjectByName("Cat");
+      console.log(kitty);
+      spline.addEventListener("mouseDown", (e) => {
+        if (e.target.name === "Cat") {
+          console.log("🙀 Meow!");
+        }
+      });
+
+      spline.addEventListener("start", (e) => {
+        if (e.target.name === "Cat") {
+          console.log("😿 Oop ");
+        }
+      });
+    }
+    deathCounter();
+  } catch (error) {
     console.error(error);
+  }
+}
+
+loadScene();
+
+// Toggle Soundtrack
+function toggleSound() {
+  const soundElement = document.querySelector("#sound");
+  const sceneSound = spline.findObjectByName("Scene Sound Controller");
+
+  if (soundElement.classList.contains("muted")) {
+    // Remove muted class and emit mouseUp event
+    soundElement.classList.remove("muted");
+    sceneSound.emitEvent("mouseUp");
+  } else {
+    // Add muted class and emit mouseDown event
+    soundElement.classList.add("muted");
+    sceneSound.emitEvent("mouseDown");
+  }
+}
+document.querySelector("#sound").addEventListener("click", toggleSound);
+
+// Toggle Fullscreen
+function toggleFullScreen() {
+  const fullScreenElement = document.querySelector("#fullscreen");
+
+  if (fullScreenElement.classList.contains("active")) {
+    console.log("exiting full screen");
+    document.exitFullscreen();
+    fullScreenElement.classList.remove("active");
+  } else {
+    console.log("requesting full screen");
+    document.documentElement.requestFullscreen();
+    fullScreenElement.classList.add("active");
+  }
+}
+document
+  .querySelector("#fullscreen")
+  .addEventListener("click", toggleFullScreen);
+
+function capture() {
+  CanvasCapture.init(document.getElementById("canvas3d"), {
+    showRecDot: true,
   });
+
+  CanvasCapture.bindKeyToPNGSnapshot("p", {
+    name: "my-giphy-yearbook-screenie",
+    dpi: 144,
+  });
+
+  const cameraButton = document.querySelector("#camera");
+
+  cameraButton.addEventListener("click", () => {
+    const event = new KeyboardEvent("keypress", { key: "p" });
+    console.log("ding");
+    document.dispatchEvent(event);
+  });
+
+  function loop() {
+    requestAnimationFrame(loop);
+    CanvasCapture.checkHotkeys();
+  }
+
+  loop(); // Start loop.
+}

@@ -42,6 +42,7 @@ aside {
       margin-bottom: -25px;
       transform: translateX(-100px);
       transition: 0.33s ease-in-out;
+
       &:hover {
         filter: hue-rotate(270deg) brightness(2);
       }

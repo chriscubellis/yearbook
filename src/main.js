@@ -31,26 +31,13 @@ fetch(SplineUrl)
     console.error(error);
   });
 
-const overlayIcon = document.getElementById("info");
-const overlay = document.getElementById("overlay");
+import { overlayIcon, overlay, escape } from "./scripts/overlay.js";
 
-overlayIcon.addEventListener("click", function () {
-  this.classList.toggle("open");
-  overlay.classList.toggle("open");
-});
+document.addEventListener("keydown", escape);
 
 // mobile warning
-import { mobileWarning, mobileShare } from "./scripts/mobile.js";
-
-document.addEventListener("DOMContentLoaded", function () {
-  if (isMobileDevice()) {
-    mobileWarning();
-    mobileShare();
-  }
-});
-
-function isMobileDevice() {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent
-  );
-}
+import {
+  mobileWarning,
+  mobileShare,
+  isMobileDevice,
+} from "./scripts/mobile.js";

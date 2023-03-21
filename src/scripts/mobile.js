@@ -43,4 +43,17 @@ function mobileShare() {
   }
 }
 
-export { mobileWarning, mobileShare };
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (isMobileDevice()) {
+    mobileWarning();
+    mobileShare();
+  }
+});
+
+export { mobileWarning, mobileShare, isMobileDevice };
