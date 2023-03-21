@@ -10,7 +10,7 @@ canvas {
   height: 100vh;
   z-index: $loader;
   pointer-events: none;
-  background: url("assets/images/background.svg");
+  background: url("../static/background.jpg");
   background-size: cover;
   background-position: center;
   @include overlay;

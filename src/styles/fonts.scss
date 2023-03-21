@@ -1,20 +1,23 @@
 @font-face {
   font-family: "Interface";
-  src: url("./assets/fonts/InterFace_Bd.ttf") format("truetype");
+  src: url("./assets/fonts/InterFace_Bd.woff2") format("woff2"),
+    url("./assets/fonts/InterFace_Bd.woff") format("woff");
   font-weight: bold;
-  font-style: normal;
+  font: normal;
 }
 
 @font-face {
   font-family: "Interface";
-  src: url("./assets/fonts/InterFace_Rg.ttf") format("truetype");
+  src: url("./assets/fonts/InterFace_Rg.woff2") format("woff2"),
+    url("./assets/fonts/InterFace_Rg.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Nexa";
-  src: url("./assets/fonts/Nexa_Black.ttf") format("truetype");
+  src: url("./assets/fonts/Nexa_Black.woff2") format("woff2"),
+    url("./assets/fonts/Nexa_Black.woff") format("woff");
   font-weight: bold;
   font-style: normal;
 }

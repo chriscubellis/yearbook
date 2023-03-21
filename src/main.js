@@ -37,7 +37,6 @@ const overlay = document.getElementById("overlay");
 overlayIcon.addEventListener("click", function () {
   this.classList.toggle("open");
   overlay.classList.toggle("open");
-  console.log("ding");
 });
 
 // mobile warning

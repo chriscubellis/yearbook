@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>GIPHY Yearbook 2023</title>
+
+    <link rel="icon" type="image/png" href="../src/assets/images/favicon.png" />
+    <link rel="icon" type="image/gif" href="../src/assets/images/favicon.gif" />
+
+    <meta
+      name="description"
+      content="The GIPHY 2023 Staff Yearbook. A virtual world filled with coworkers and secrets."
+    />
+    <meta
+      name="keywords"
+      content="GIPHY, GIPHY Yearbook, GIFs, internet, giphy staff"
+    />
+    <meta name="author" content="Chris Cubellis, Dark Igloo, GIPHY" />
+
+    <meta property="og:title" content="GIPHY Yearbook 2023" />
+    <meta
+      property="og:description"
+      content="The GIPHY 2023 Staff Yearbook. A virtual world filled with coworkers and secrets."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yearbook.giphy.com/" />
+    <meta property="og:image" content="https://yearbook.giphy.com/meta.png" />
+    <meta
+      property="og:image:alt"
+      content="A cat looking hopefully at the sky, in front of the words 'GIPHY Yearbook 2023'"
+    />
+
+    <link rel="stylesheet" href="../src/styles.scss" />
+    <link rel="stylesheet" href="./index.scss" />
+
+    <link
+      rel="preload"
+      href="../src/assets/images/icons/sound-off.svg"
+      as="image"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-PF16X8PG6P"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-PF16X8PG6P");
+    </script>
+  </head>
+
+  <body id="play">
+    <header>
+      <nav>
+        <a href="../index.html" class="icon" id="back" alt="Close icon"></a>
+
+        <a href="#" id="sound" class="icon" alt=""></a>
+
+        <a href="#" id="fullscreen" class="icon" alt=""></a>
+
+        <a href="#" id="controller" class="icon" alt="">
+          <ul>
+            <li id="keyboard" class="icon"></li>
+            <li id="spacebar" class="icon"></li>
+            <li id="mouse" class="icon"></li>
+          </ul>
+        </a>
+      </nav>
+    </header>
+
+    <canvas
+      id="canvas3d"
+      alt="3D interactive scene featuring a cute kitty. The cat is controlled with the keyboard and can boop objects and explore employee yearbook cubes"
+    ></canvas>
+
+    <div id="preloader">
+      <div id="loader"></div>
+      <div id="progress">
+        <div id="download">
+          <span id="download-label">Downloading Catnip...</span>
+          <span id="download-percentage">0%</span>
+        </div>
+        <div id="processing" class="inactive">
+          <span id="processing-label">Processing Boxes...</span>
+          <span id="processing-percentage"></span>
+        </div>
+        <div id="build" class="inactive">
+          <span id="build-label"></span>
+          <span id="build-percentage"></span>
+        </div>
+      </div>
+      <footer>
+        <img
+          src="../src/assets/images/icons/wifi.svg"
+          alt="WiFi signal error icon indicating low wireless network connection."
+        />
+        <p>Slower connections may take longer to load</p>
+      </footer>
+    </div>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
