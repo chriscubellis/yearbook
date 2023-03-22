@@ -66,18 +66,18 @@ header {
       background-size: 50%;
 
       ul {
-        height: 160px;
+        height: 150px;
         visibility: hidden;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: flex-end;
         gap: 5px;
         display: flex;
         position: absolute;
-        top: -140px;
+        top: -150px;
         right: 0;
         background-color: $glass;
         border-radius: 52px 52px 0 0;
-        padding: 20px;
+        padding: 10px 20px;
 
         #keyboard {
           background: url("../src/assets/images/icons/arrows.svg") no-repeat;
@@ -110,6 +110,28 @@ header {
       }
     }
 
+    ul {
+      .icon {
+        position: relative;
+        &:hover {
+          &::after {
+            content: attr(data-content);
+            white-space: nowrap;
+            color: $grey-light;
+            font-weight: regular;
+            font-family: "Interface", sans-serif;
+            position: absolute;
+            width: auto;
+            padding: 10px 15px;
+            border-radius: 4px;
+            background: $glass;
+            right: calc(100% + 15px);
+            text-align: right;
+          }
+        }
+      }
+    }
+
     ul.sidebar {
       position: fixed;
       right: 20px;
@@ -124,32 +146,31 @@ header {
 
       background-color: $glass;
       border-radius: 52px;
-      padding: 20px;
+      padding: 15px 10px;
 
       width: auto;
 
       #camera {
         background: url("../src/assets/images/icons/camera.svg") no-repeat;
-        background-size: 75%;
+        background-size: 66%;
         background-position: center;
       }
-
-      #zoom-in {
-        background: url("../src/assets/images/icons/zoom-in.svg") no-repeat;
-        background-size: 75%;
+      #zoom {
+        background: url("../src/assets/images/icons/zoom.svg") no-repeat;
+        background-size: 66%;
         background-position: center;
+        cursor: pointer;
       }
-
-      #zoom-out {
-        background: url("../src/assets/images/icons/zoom-out.svg") no-repeat;
-        background-size: 75%;
+      #move {
+        background: url("../src/assets/images/icons/pan.svg") no-repeat;
+        background-size: 66%;
         background-position: center;
+        cursor: pointer;
       }
 
       li.icon {
         width: 36px;
         height: 36px;
-        background: white;
       }
     }
 

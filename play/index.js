@@ -73,7 +73,6 @@ async function loadScene() {
     setTimeout(function () {
       Loader.classList.add("hidden");
       document.body.classList.add("scene-loaded");
-      capture();
     }, 10);
 
     // Kitty 9 Lives Counter (Not Working) ☠️
@@ -92,6 +91,13 @@ async function loadScene() {
       });
     }
     deathCounter();
+
+    // Camera Test
+    capture();
+
+    // Zoom Buttons
+    const camera = spline.findObjectByName("Scene Camera");
+    console.log(camera);
   } catch (error) {
     console.error(error);
   }
