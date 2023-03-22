@@ -1,5 +1,5 @@
-export function loader() {
-  const loader = document.getElementById("loader");
+export function Loader() {
+  const Loader = document.getElementById("loader");
 
   const colors = [
     { name: "green", value: "rgba(0, 255, 153, 1)" },
@@ -49,6 +49,6 @@ export function loader() {
       cube.appendChild(side);
     }
 
-    loader.appendChild(cube);
+    Loader.appendChild(cube);
   }
 }

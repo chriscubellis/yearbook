@@ -1,13 +1,11 @@
 import { Application } from "@splinetool/runtime";
 import SceneUrl from "url:../src/assets/models/scene.splinecode";
 import { CanvasCapture } from "canvas-capture";
-
-import { loader } from "../src/scripts/loader.js";
+import { Loader } from "../src/scripts/loader.js";
 
 const canvas = document.getElementById("canvas3d");
-
 const spline = new Application(canvas);
-loader();
+Loader();
 
 async function loadScene() {
   try {
@@ -17,7 +15,6 @@ async function loadScene() {
     let receivedLength = 0;
     let chunks = [];
     const decoding = new TextDecoder();
-
     while (true) {
       const result = await reader.read();
       if (result.done) break;
@@ -35,25 +32,26 @@ async function loadScene() {
     const blob = new Blob(chunks);
     const url = URL.createObjectURL(blob);
 
+    // Download Percentage ⬇️
     const download = document.getElementById("download");
     const downloadLabel = document.getElementById("download-label");
     const downloadPercentage = document.getElementById("download-percentage");
 
+    // Processing State 🔄
     const processing = document.getElementById("processing");
     const processingLabel = document.getElementById("processing-label");
     const processingPercentage = document.getElementById(
       "processing-percentage"
     );
 
+    // Building Scene 👷‍♀️
     const build = document.getElementById("build");
     const buildLabel = document.getElementById("build-label");
     const buildPercentage = document.getElementById("build-percentage");
 
-    const loader = document.getElementById("preloader");
-
+    // Show Loader 🟩🟧🟥🟪🟦
+    const Loader = document.getElementById("preloader");
     download.classList.add("inactive");
-
-    // "Preparing Build..." loop
     let buildProgress = 0;
     const preparingBuildInterval = setInterval(function () {
       if (buildProgress === 0) {
@@ -65,21 +63,22 @@ async function loadScene() {
       }
     }, 100);
 
+    // Reveal Scene 🙀
     await spline.load(url);
     console.log("😻 Ready Player One");
 
     buildProgress = 100;
 
+    // Remove Loader ❎
     setTimeout(function () {
-      loader.classList.add("hidden");
+      Loader.classList.add("hidden");
       document.body.classList.add("scene-loaded");
       capture();
-    }, 0);
+    }, 10);
 
-    // kitty lives counter
+    // Kitty 9 Lives Counter (Not Working) ☠️
     function deathCounter() {
       const kitty = spline.findObjectByName("Cat");
-      console.log(kitty);
       spline.addEventListener("mouseDown", (e) => {
         if (e.target.name === "Cat") {
           console.log("🙀 Meow!");
@@ -97,10 +96,9 @@ async function loadScene() {
     console.error(error);
   }
 }
-
 loadScene();
 
-// Toggle Soundtrack
+// Toggle Soundtrack 🔊
 function toggleSound() {
   const soundElement = document.querySelector("#sound");
   const sceneSound = spline.findObjectByName("Scene Sound Controller");
@@ -117,7 +115,7 @@ function toggleSound() {
 }
 document.querySelector("#sound").addEventListener("click", toggleSound);
 
-// Toggle Fullscreen
+// Toggle Fullscreen ↔️
 function toggleFullScreen() {
   const fullScreenElement = document.querySelector("#fullscreen");
 
@@ -135,6 +133,7 @@ document
   .querySelector("#fullscreen")
   .addEventListener("click", toggleFullScreen);
 
+// Screen Capture 📸
 function capture() {
   CanvasCapture.init(document.getElementById("canvas3d"), {
     showRecDot: true,

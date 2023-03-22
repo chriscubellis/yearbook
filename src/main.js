@@ -1,8 +1,8 @@
 import { Application } from "@splinetool/runtime";
 import SplineUrl from "url:./assets/models/splash.splinecode";
 
+// Scene 🐈
 const canvas = document.getElementById("canvas3d");
-
 const spline = new Application(canvas);
 fetch(SplineUrl)
   .then((response) => {
@@ -31,11 +31,11 @@ fetch(SplineUrl)
     console.error(error);
   });
 
+// Overlay ❎
 import { overlayIcon, overlay, escape } from "./scripts/overlay.js";
-
 document.addEventListener("keydown", escape);
 
-// mobile warning
+// Mobile Warning 🚨
 import {
   mobileWarning,
   mobileShare,
