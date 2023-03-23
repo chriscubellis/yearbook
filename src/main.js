@@ -41,3 +41,8 @@ import {
   mobileShare,
   isMobileDevice,
 } from "./scripts/mobile.js";
+
+// Tab Switcher
+
+import { handleTitleAndFavicon } from "./scripts/tab.js";
+handleTitleAndFavicon();

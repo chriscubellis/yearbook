@@ -1,41 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIPHY Yearbook</title>
 
-    <title>GIPHY Yearbook 2023</title>
+    <link rel="import" href="../src/meta.html" />
 
-    <link rel="icon" type="image/png" href="../src/assets/images/favicon.png" />
     <link rel="icon" type="image/gif" href="../src/assets/images/favicon.gif" />
-
-    <meta
-      name="description"
-      content="The GIPHY 2023 Staff Yearbook. A virtual world filled with coworkers and secrets."
-    />
-    <meta
-      name="keywords"
-      content="GIPHY, GIPHY Yearbook, GIFs, internet, giphy staff"
-    />
-    <meta name="author" content="Chris Cubellis, Dark Igloo, GIPHY" />
-
-    <meta property="og:title" content="GIPHY Yearbook 2023" />
-    <meta
-      property="og:description"
-      content="The GIPHY 2023 Staff Yearbook. A virtual world filled with coworkers and secrets."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yearbook.giphy.com/" />
-    <meta property="og:image" content="https://yearbook.giphy.com/meta.png" />
-    <meta
-      property="og:image:alt"
-      content="A cat looking hopefully at the sky, in front of the words 'GIPHY Yearbook 2023'"
-    />
+    <link rel="icon" type="image/png" href="../src/assets/images/favicon.png" />
 
     <link rel="stylesheet" href="../src/styles.scss" />
     <link rel="stylesheet" href="./index.scss" />
 
-    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-PF16X8PG6P"
@@ -46,7 +21,6 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-PF16X8PG6P");
     </script>
   </head>
@@ -56,24 +30,37 @@
       <nav>
         <a href="../index.html" class="icon" id="back" alt="Close icon"></a>
 
-        <a href="#" id="sound" class="icon" alt=""></a>
-        <a href="#" id="fullscreen" class="icon" alt=""></a>
+        <a
+          href="#"
+          id="sound"
+          class="icon"
+          alt="Button to toggle page sound on or off, represented by a speaker icon with sound waves emanating from it"
+        ></a>
+        <a
+          href="#"
+          id="fullscreen"
+          class="icon"
+          alt=" Icon to expand video or image to fullscreen mode "
+        ></a>
 
         <ul class="sidebar">
           <li
             id="camera"
             class="icon"
             data-content="Press P to take a photo"
+            alt="Icon of a camera used to take a screenshot"
           ></li>
           <li
             id="zoom"
             class="icon"
             data-content="Pinch or scroll to zoom"
+            alt="Icon of a magnifying glass"
           ></li>
           <li
             id="move"
             class="icon"
             data-content="Swipe or right-click and drag to pan"
+            alt="Icon of four arrows pointing in different directions, indicating the ability to pan or move around"
           ></li>
         </ul>
 
@@ -83,13 +70,20 @@
               id="keyboard"
               class="icon"
               data-content="Move with arrow keys"
+              alt="Keyboard arrow keys icon indicating directional navigation options."
             ></li>
             <li
               id="spacebar"
               class="icon"
               data-content="Jump with spacebar"
+              alt="Keyboard spacebar icon indicating jump navigation"
             ></li>
-            <li id="mouse" class="icon" data-content="Click to upgrade!"></li>
+            <li
+              id="mouse"
+              class="icon"
+              data-content="Click to upgrade!"
+              alt="Computer mouse icon indicating click interactions"
+            ></li>
           </ul>
         </a>
       </nav>

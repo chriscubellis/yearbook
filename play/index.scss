@@ -54,6 +54,9 @@ header {
         background-color: $black;
         background-size: 50%;
       }
+      @include mobile() {
+        display: none;
+      }
     }
 
     #controller {
@@ -64,6 +67,10 @@ header {
       bottom: 18px;
       background-color: $glass;
       background-size: 50%;
+
+      @include mobile() {
+        display: none;
+      }
 
       ul {
         height: 150px;
@@ -172,6 +179,10 @@ header {
         width: 36px;
         height: 36px;
       }
+
+      @include mobile() {
+        display: none;
+      }
     }
 
     & > .icon {
@@ -182,6 +193,10 @@ header {
         opacity: 1;
       }
     }
+  }
+
+  @include mobile {
+    padding: 15px;
   }
 }
 
