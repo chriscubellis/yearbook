@@ -94,10 +94,6 @@ async function loadScene() {
 
     // Camera Test
     capture();
-
-    // Zoom Buttons
-    const camera = spline.findObjectByName("Scene Camera");
-    console.log(camera);
   } catch (error) {
     console.error(error);
   }
@@ -165,3 +161,7 @@ function capture() {
 
   loop(); // Start loop.
 }
+
+// Tab Switcher
+import { handleTitleAndFavicon } from "../src/scripts/tab.js";
+handleTitleAndFavicon();

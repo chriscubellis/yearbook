@@ -6,7 +6,6 @@ export function handleTitleAndFavicon() {
   function changeTitleAndFavicon() {
     if (!active) {
       document.title = pageTitle;
-
       active = true;
     }
   }
