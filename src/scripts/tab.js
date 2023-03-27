@@ -1,4 +1,4 @@
-export function handleTitleAndFavicon() {
+export function Tabs() {
   var pageTitle = document.title;
   var active = true;
 

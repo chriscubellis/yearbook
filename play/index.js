@@ -163,5 +163,5 @@ function capture() {
 }
 
 // Tab Switcher
-import { handleTitleAndFavicon } from "../src/scripts/tab.js";
-handleTitleAndFavicon();
+import { Tabs } from "../src/scripts/tab.js";
+Tabs();

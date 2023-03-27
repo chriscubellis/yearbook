@@ -10,7 +10,7 @@ canvas {
   height: 100vh;
   z-index: $loader;
   pointer-events: none;
-  background: url("../static/background.jpg");
+  background: url("../static/background.webp");
   background-size: cover;
   background-position: center;
   @include overlay;

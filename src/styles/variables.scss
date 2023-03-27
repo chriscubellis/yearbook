@@ -21,6 +21,7 @@ $glass: rgba($black, 0.5);
 
 // Spacing
 $iconMargin: 15px;
+$sitePadding: 30px;
 
 // Element Sizing
 $iconSize: 50px;
@@ -32,8 +33,9 @@ $background: -1;
 $default: 1;
 $overlay: 10;
 $modal: 100;
-$nav: 1000;
 $loader: 500;
+$nav: 1000;
+$warning: 10000;
 
 // Values
 $overlay-transparency: 0.9;
@@ -50,4 +52,17 @@ $icon-hover-opacity: 0.9;
 @mixin overlay {
   background-color: rgba($black, $overlay-transparency);
   backdrop-filter: blur(10px);
+}
+
+@mixin shadow($color, $layers: 8, $darken: 30%) {
+  $primary-color: $color;
+  $shadow: ();
+  @for $i from 1 through $layers {
+    $shadow: append(
+      $shadow,
+      ($i * -1) * 1px ($i * 1px) 0px darken($primary-color, $darken),
+      comma
+    );
+  }
+  box-shadow: $shadow;
 }

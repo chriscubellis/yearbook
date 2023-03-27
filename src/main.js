@@ -37,11 +37,15 @@ document.addEventListener("keydown", escape);
 
 // Mobile Warning 🚨
 import {
-  mobileWarning,
-  mobileShare,
-  isMobileDevice,
+  MobileWarning,
+  MobileShare,
+  IsMobileDevice,
 } from "./scripts/mobile.js";
 
+// Safari Warning 🚨
+import { SafariWarning } from "./scripts/safari.js";
+SafariWarning();
+
 // Tab Switcher
-import { handleTitleAndFavicon } from "./scripts/tab.js";
-handleTitleAndFavicon();
+import { Tabs } from "./scripts/tab.js";
+Tabs();

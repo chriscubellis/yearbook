@@ -13,10 +13,15 @@
       "index": "./index.html",
       "play": "./src/pages/play.html"
     },
-    "extends": "@parcel/config-defaul t",
+    "optimization": {
+      "gzip": true
+    },
+    "extends": "@parcel/config-default",
     "plugins": {}
   },
   "devDependencies": {
+    "@parcel/compressor-brotli": "^2.8.3",
+    "@parcel/compressor-gzip": "^2.8.3",
     "@parcel/transformer-sass": "2.8.3",
     "buffer": "^5.5.0",
     "parcel-reporter-static-files-copy": "^1.5.0",

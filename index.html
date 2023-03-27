@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>GIPHY Yearbook 2023</title>
 
@@ -56,13 +56,13 @@
         <a
           href="https://giphy.com/about"
           id="logo"
-          alt="Colorful icon with the word 'Giphy' written in large white letters"
+          aria-label="Colorful icon with the word 'Giphy' written in large white letters"
         ></a>
         <a
           href="#"
           id="info"
           class="icon"
-          alt="A small icon depicting a lowercase 'i' inside a circle used to indicate additional information or details."
+          aria-label="A small icon depicting a lowercase 'i' inside a circle used to indicate additional information or details."
         ></a>
       </nav>
     </header>
@@ -119,7 +119,7 @@
     <aside id="overlay">
       <div class="overlay-content">
         <section class="intro">
-          <img src="./src/assets/images/cat.png" alt="" />
+          <img src="./src/assets/images/cat.webp" alt="" />
 
           <h6>Welcome to the 2023 Yearbook</h6>
 
@@ -202,6 +202,19 @@
           <button>Copy Link</button>
         </a>
         <a id="play-anyways" href="./play/">Play Anyways</a>
+      </div>
+    </aside>
+
+    <aside class="banner" id="safari-warning">
+      <div class="modal-content">
+        <div class="left">
+          <h6>🙀 Sorry, Safari isn't supported!</h6>
+          <p>Purrhaps try Chrome or Firefox for a better experience.</p>
+        </div>
+        <div class="right">
+          <a id="play-anyways" href="#">Ignore</a
+          ><a href="#" class="icon" id="hide-banner"></a>
+        </div>
       </div>
     </aside>
 

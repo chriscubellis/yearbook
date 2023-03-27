@@ -1,6 +1,6 @@
 // mobile.js
 
-function mobileWarning() {
+function MobileWarning() {
   const playButton = document.getElementById("play");
   const mobileWarning = document.getElementById("mobile-warning");
 
@@ -23,7 +23,7 @@ function mobileWarning() {
     });
 }
 
-function mobileShare() {
+function MobileShare() {
   const shareLink = document.getElementById("share-link");
 
   if (navigator.share) {
@@ -43,17 +43,17 @@ function mobileShare() {
   }
 }
 
-function isMobileDevice() {
+function IsMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   );
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (isMobileDevice()) {
+  if (IsMobileDevice()) {
     mobileWarning();
     mobileShare();
   }
 });
 
-export { mobileWarning, mobileShare, isMobileDevice };
+export { MobileWarning, MobileShare, IsMobileDevice };
