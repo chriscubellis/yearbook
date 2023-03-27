@@ -205,6 +205,9 @@ button {
 
     transform: translate(-2px, 2px);
   }
+  @include mobile {
+    padding: 24px 80px;
+  }
 }
 
 footer {

@@ -51,8 +51,8 @@ function IsMobileDevice() {
 
 document.addEventListener("DOMContentLoaded", function () {
   if (IsMobileDevice()) {
-    mobileWarning();
-    mobileShare();
+    MobileWarning();
+    MobileShare();
   }
 });
 
