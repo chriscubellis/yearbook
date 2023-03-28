@@ -101,6 +101,13 @@ header {
         }
       }
     }
+
+    #staff-grid {
+      position: fixed;
+      background: $purple;
+      bottom: $sitePadding;
+      left: $sitePadding;
+    }
   }
 }
 

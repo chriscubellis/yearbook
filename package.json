@@ -5,14 +5,10 @@
   "scripts": {
     "clean": "shx rm -rf .parcel-cache/* dist/*",
     "prebuild": "yarn run clean",
-    "build": "parcel build index.html --dist-dir ./dist",
-    "start": "parcel index.html "
+    "build": "parcel build ./public/index.html --dist-dir ./dist",
+    "start": "parcel ./public/index.html"
   },
   "parcel": {
-    "entries": {
-      "index": "./index.html",
-      "play": "./src/pages/play.html"
-    },
     "optimization": {
       "gzip": true
     },
@@ -24,6 +20,7 @@
     "@parcel/compressor-gzip": "^2.8.3",
     "@parcel/transformer-sass": "2.8.3",
     "buffer": "^5.5.0",
+    "parcel-optimizer-friendly-urls": "^0.2.0",
     "parcel-reporter-static-files-copy": "^1.5.0",
     "process": "^0.11.10",
     "serve": "^13.0.2"

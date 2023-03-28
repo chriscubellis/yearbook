@@ -1,7 +1,7 @@
 import { Application } from "@splinetool/runtime";
-import SceneUrl from "url:../src/assets/models/scene.splinecode";
+import SceneUrl from "url:../../src/assets/models/scene.splinecode";
 import { CanvasCapture } from "canvas-capture";
-import { Loader } from "../src/scripts/loader.js";
+import { Loader } from "../../src/scripts/loader.js";
 
 const canvas = document.getElementById("canvas3d");
 const spline = new Application(canvas);
@@ -163,5 +163,5 @@ function capture() {
 }
 
 // Tab Switcher
-import { Tabs } from "../src/scripts/tab.js";
+import { Tabs } from "../../src/scripts/tab.js";
 Tabs();

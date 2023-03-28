@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/" />
     <title>GIPHY Yearbook 2023</title>
 
-    <link rel="icon" type="image/gif" href="./src/assets/images/favicon.gif" />
-    <link rel="icon" type="image/png" href="./src/assets/images/favicon.png" />
+    <link rel="icon" type="image/gif" href="../src/assets/images/favicon.gif" />
+    <link rel="icon" type="image/png" href="../src/assets/images/favicon.png" />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,7 +35,7 @@
 
     <meta name="theme-color" content="#000" />
 
-    <link rel="stylesheet" href="./src/styles.scss" />
+    <link rel="stylesheet" href="../src/styles.scss" />
 
     <script
       async
@@ -64,12 +65,13 @@
           class="icon"
           aria-label="A small icon depicting a lowercase 'i' inside a circle used to indicate additional information or details."
         ></a>
+        <a href="./directory/index.html" class="icon" id="staff-grid"></a>
       </nav>
     </header>
 
     <main>
       <img
-        src="./src/assets/images/graphic.svg"
+        src="../src/assets/images/graphic.svg"
         id="yearbook-branding"
         alt="SVG graphic of large text reading 'GIPHY' in white, 'YEARBOOK' in pink, and '2023' in green on a transparent background."
       />
@@ -77,21 +79,21 @@
       <ul id="controls">
         <li>
           <img
-            src="./src/assets/images/icons/arrows.svg"
+            src="../src/assets/images/icons/arrows.svg"
             alt="Keyboard arrow keys icon indicating directional navigation options."
           />
           <h5>Move</h5>
         </li>
         <li>
           <img
-            src="./src/assets/images/icons/spacebar.svg"
+            src="../src/assets/images/icons/spacebar.svg"
             alt="Keyboard spacebar icon indicating jump navigation"
           />
           <h5>Jump</h5>
         </li>
         <li>
           <img
-            src="./src/assets/images/icons/mouse.svg"
+            src="../src/assets/images/icons/mouse.svg"
             alt="Computer mouse icon indicating click interactions"
           />
           <h5>Interact</h5>
@@ -110,7 +112,7 @@
 
     <footer>
       <img
-        src="./src/assets/images/icons/wifi.svg"
+        src="../src/assets/images/icons/wifi.svg"
         alt="WiFi signal error icon indicating low wireless network connection."
       />
       <p>Slow connections may cause impatience and frustration</p>
@@ -119,7 +121,7 @@
     <aside id="overlay">
       <div class="overlay-content">
         <section class="intro">
-          <img src="./src/assets/images/cat.webp" alt="" />
+          <img src="../src/assets/images/cat.webp" alt="" />
 
           <h6>Welcome to the 2023 Yearbook</h6>
 
@@ -218,6 +220,6 @@
       </div>
     </aside>
 
-    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="../src/main.js"></script>
   </body>
 </html>
