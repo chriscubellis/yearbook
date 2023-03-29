@@ -93,15 +93,6 @@ fetch("portraits/directory.html")
 function addClickListeners() {
   const overlayToggle = document.getElementById("overlay-toggle");
   let splineViewer = null;
-  let sceneIndex = 0;
-
-  const sceneUrls = [
-    "https://prod.spline.design/mj2ZxMr8bkgvzm0O/scene.splinecode",
-    "https://prod.spline.design/9G3q3dD6ZjU6wF5K/scene.splinecode",
-    "https://prod.spline.design/9NvZlYpJjR1n8WwA/scene.splinecode",
-    "https://prod.spline.design/7XgDv4tK4Hf4Yc8W/scene.splinecode",
-    "https://prod.spline.design/7K8vKpJ6JyE6Gy1W/scene.splinecode",
-  ];
 
   grid.addEventListener("click", (event) => {
     const portrait = event.target.closest(".portrait");
@@ -134,7 +125,8 @@ function addClickListeners() {
 
       splineViewer = document.createElement("spline-viewer");
       splineViewer.loadingAnim = true;
-      splineViewer.url = sceneUrls[sceneIndex];
+      splineViewer.url =
+        "https://prod.spline.design/mj2ZxMr8bkgvzm0O/scene.splinecode";
 
       // Add the spline-viewer element to the canvas div
       canvas.appendChild(splineViewer);
@@ -153,12 +145,6 @@ function addClickListeners() {
       }
     }
     document.addEventListener("keydown", escape);
-
-    // Increment the scene index and reset to 0 if it exceeds the number of scene URLs
-    sceneIndex++;
-    if (sceneIndex >= sceneUrls.length) {
-      sceneIndex = 0;
-    }
   });
 
   overlayToggle.addEventListener("click", () => {
