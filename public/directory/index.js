@@ -1,6 +1,9 @@
-import { Application } from "@splinetool/runtime";
-import SplineUrl from "url:../../src/assets/models/franzese_dave.splinecode";
+console.log("🐱 Kitty welcomes you to The Directory");
 
+// Find the grid element
+const grid = document.getElementById("grid");
+
+// Get the JPG and WebP files from the portraits directory
 fetch("portraits/directory.html")
   .then((response) => response.text())
   .then((text) => {
@@ -15,7 +18,6 @@ fetch("portraits/directory.html")
         jpg: a.href,
         webp: a.dataset.webp,
         name: a.dataset.name,
-        slug: a.dataset.slug,
       }));
 
     // Preload the WebP images
@@ -50,12 +52,26 @@ fetch("portraits/directory.html")
             name.textContent = file.name;
             wrapper.appendChild(name);
 
-            // Add the data-slug attribute
-            wrapper.dataset.slug = file.slug;
-
-            img.addEventListener("click", () => {
-              console.log(`Clicked ${file.jpg}`);
-              document.body.classList.add("portrait-open");
+            img.addEventListener("mouseenter", () => {
+              console.log(`Mouse entered ${file.jpg}`);
+              const webpImg = new Image();
+              webpImg.src = file.webp;
+              webpImg.alt = "";
+              webpImg.style.width = "100%";
+              webpImg.style.height = "100%";
+              webpImg.style.objectFit = "cover";
+              webpImg.style.position = "absolute";
+              webpImg.style.top = "0";
+              webpImg.style.left = "0";
+              wrapper.appendChild(webpImg);
+              img.style.display = "none";
+              wrapper.addEventListener("mouseleave", () => {
+                console.log(`Mouse left ${file.jpg}`);
+                wrapper.removeChild(webpImg);
+                img.style.display = "block";
+                img.style.zIndex = "2";
+                wrapper.style.zIndex = "1";
+              });
             });
             grid.appendChild(wrapper);
           });
@@ -66,9 +82,6 @@ fetch("portraits/directory.html")
         images.forEach((img) => {
           grid.appendChild(img);
         });
-
-        // Call the new script after the grid is loaded
-        addClickListeners();
       })
       .catch((error) => {
         console.log(error);
@@ -77,63 +90,3 @@ fetch("portraits/directory.html")
   .catch((error) => {
     console.log(error);
   });
-
-function addClickListeners() {
-  const wrappers = document.querySelectorAll("#grid div");
-  wrappers.forEach((wrapper) => {
-    wrapper.addEventListener("click", () => {
-      console.log(`Clicked ${wrapper.dataset.name}`);
-      document.body.classList.add("portrait-open");
-    });
-  });
-}
-
-// Scene 🐈
-
-const canvas = document.getElementById("canvas3d");
-const spline = new Application(canvas);
-
-fetch(SplineUrl)
-  .then((response) => {
-    const reader = response.body.getReader();
-    const contentLength = response.headers.get("Content-Length");
-    let receivedLength = 0;
-    let chunks = [];
-    let decoding = new TextDecoder();
-    reader.read().then(function processResult(result) {
-      if (result.done) {
-        const blob = new Blob(chunks);
-        const url = URL.createObjectURL(blob);
-        spline.load(url).then(() => {});
-        return;
-      }
-      chunks.push(result.value);
-      receivedLength += result.value.length;
-      console.log(
-        `Loading... ${Math.round((receivedLength / contentLength) * 100)}%`
-      );
-
-      return reader.read().then(processResult);
-    });
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-
-// Overlay
-
-const overlayIcon = document.getElementById("close");
-const overlay = document.getElementById("overlay");
-
-overlayIcon.addEventListener("click", function () {
-  document.body.classList.toggle("portrait-open");
-  overlay.classList.toggle("open");
-});
-
-function escape(event) {
-  if (event.key === "Escape" && overlay.classList.contains("open")) {
-    overlayIcon.classList.remove("open");
-    overlay.classList.remove("open");
-    document.body.classList.toggle("portrait-open");
-  }
-}
