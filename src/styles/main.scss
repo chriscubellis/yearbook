@@ -107,6 +107,29 @@ header {
       background: $purple;
       bottom: $sitePadding;
       left: $sitePadding;
+      background: url("./assets/images/avatar.svg") no-repeat;
+      width: 42px;
+      height: 42px;
+      opacity: 0.9;
+      &:hover {
+        opacity: 1;
+      }
+      &::before {
+        content: "All Staff";
+        color: $grey-medium;
+        width: 100px;
+        text-align: left;
+        position: absolute;
+        right: -100px;
+        padding-left: 5px;
+        top: 10px;
+        opacity: 0;
+      }
+      &:hover {
+        &::before {
+          opacity: 1;
+        }
+      }
     }
   }
 }

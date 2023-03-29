@@ -1,0 +1,23 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="40" height="40" rx="2" transform="matrix(-1 0 0 1 40 0)" fill="url(#paint0_linear_215_776)"/>
+<rect width="10.0941" height="7.85096" transform="matrix(-1 0 0 1 32.196 15.8431)" fill="white"/>
+<rect width="5.60783" height="2.24313" transform="matrix(-1 0 0 1 29.9528 23.694)" fill="white"/>
+<rect width="2.24313" height="7.85096" transform="matrix(-1 0 0 1 34.4391 15.8431)" fill="#D8D8D8"/>
+<rect width="2.24313" height="2.24313" transform="matrix(-1 0 0 1 32.196 23.694)" fill="#D8D8D8"/>
+<rect opacity="0.6" width="2.24313" height="2.24313" transform="matrix(-1 0 0 1 32.196 13.6)" fill="black"/>
+<rect opacity="0.25" width="5.60783" height="2.24313" transform="matrix(-1 0 0 1 29.9528 13.6)" fill="black"/>
+<rect width="5.60783" height="5.60783" transform="matrix(-1 0 0 1 32.196 18.0862)" fill="black"/>
+<rect width="10.0941" height="7.85096" transform="matrix(-1 0 0 1 16.4942 15.8431)" fill="white"/>
+<rect width="5.60783" height="2.24313" transform="matrix(-1 0 0 1 14.251 23.694)" fill="white"/>
+<rect width="2.24313" height="7.85096" transform="matrix(-1 0 0 1 18.7373 15.8431)" fill="#D8D8D8"/>
+<rect width="2.24313" height="2.24313" transform="matrix(-1 0 0 1 16.4942 23.694)" fill="#D8D8D8"/>
+<rect opacity="0.6" width="2.24313" height="2.24313" transform="matrix(-1 0 0 1 16.4942 13.6)" fill="black"/>
+<rect opacity="0.25" width="5.60783" height="2.24313" transform="matrix(-1 0 0 1 14.251 13.6)" fill="black"/>
+<rect width="5.60783" height="5.60783" transform="matrix(-1 0 0 1 16.4942 18.0862)" fill="black"/>
+<defs>
+<linearGradient id="paint0_linear_215_776" x1="40" y1="8.56928" x2="1.58516e-06" y2="31.4307" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF6666"/>
+<stop offset="1" stop-color="#E646B6"/>
+</linearGradient>
+</defs>
+</svg>

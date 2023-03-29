@@ -25,6 +25,16 @@
     "process": "^0.11.10",
     "serve": "^13.0.2"
   },
+  "staticFiles": [
+    {
+      "staticOutPath": "directory/portraits",
+      "staticPath": "public/directory/portraits"
+    },
+    {
+      "staticOutPath": "static",
+      "staticPath": "static/"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "@splinetool/runtime": "^0.9.257",

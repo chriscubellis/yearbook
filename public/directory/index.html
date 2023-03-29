@@ -61,7 +61,50 @@
   </head>
 
   <body id="directory">
-    <header></header>
+    <header>
+      <nav>
+        <a
+          href="../index.html"
+          class="icon"
+          id="back"
+          aria-label="Close icon"
+        ></a>
+      </nav>
+    </header>
+
+    <div id="grid"></div>
+
+    <aside class="banner">
+      <div class="modal-content">
+        <div class="left">
+          <h6>😽 Take Home Scenes</h6>
+          <p>Click in for your own little scene.</p>
+        </div>
+        <div class="right">
+          <a id="#" href="#">View on GIPHY</a>
+        </div>
+      </div>
+    </aside>
+
+    <aside id="overlay">
+      <a href="#" id="close" class="icon"></a>
+
+      <div class="overlay-content">
+        <canvas id="canvas3d" alt=""></canvas>
+
+        <section class="footer-info">
+          <section>
+            <h6>Dave Franzese</h6>
+
+            <ul>
+              <li>
+                <a href="#" target="_blank">Download GIF</a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </div>
+    </aside>
 
     <script type="module" src="./index.js"></script>
   </body>

@@ -1,0 +1,1 @@
+ls public/directory/portraits/*.jpg | awk '{split($0,a,"/"); gsub(/ /, "\\ ", a[length(a)]); name=substr(a[length(a)], 1, length(a[length(a)])-4); gsub(/[-_]/, " ", name); printf "<a href=\"portraits/%s\" data-webp=\"portraits/%s.webp\" data-name=\"%s\">%s</a><br>\n" , a[length(a)], name, name, a[length(a)]}' > public/directory/portraits/directory.html
