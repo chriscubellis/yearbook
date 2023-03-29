@@ -1,0 +1,29 @@
+// Mixins
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin overlay {
+  background-color: rgba($black, $overlay-transparency);
+  backdrop-filter: blur(10px);
+}
+
+@mixin shadow($color, $layers: 8, $darken: 30%) {
+  $primary-color: $color;
+  $shadow: ();
+  @for $i from 1 through $layers {
+    $shadow: append(
+      $shadow,
+      ($i * -1) * 1px ($i * 1px) 0px darken($primary-color, $darken),
+      comma
+    );
+  }
+  box-shadow: $shadow;
+}
+
+@mixin gradient($color1, $color2) {
+  background: linear-gradient(to top right, $color1, $color2);
+}

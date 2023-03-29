@@ -73,8 +73,20 @@ fetch("portraits/directory.html")
                 wrapper.style.zIndex = "1";
               });
             });
+            wrapper.addEventListener("click", () => {
+              console.log(`Clicked ${file.jpg}`);
+              document.body.classList.add("portrait-open");
+
+              function escape(event) {
+                if (event.key === "Escape") {
+                  document.body.classList.remove("portrait-open");
+                }
+              }
+              document.addEventListener("keydown", escape);
+            });
             grid.appendChild(wrapper);
           });
+
           return img;
         });
 
@@ -82,6 +94,8 @@ fetch("portraits/directory.html")
         images.forEach((img) => {
           grid.appendChild(img);
         });
+
+        addClickListeners();
       })
       .catch((error) => {
         console.log(error);
@@ -90,3 +104,16 @@ fetch("portraits/directory.html")
   .catch((error) => {
     console.log(error);
   });
+
+function addClickListeners() {
+  const wrappers = document.querySelectorAll("#grid div");
+  wrappers.forEach((wrapper) => {
+    wrapper.addEventListener("click", () => {
+      console.log(`Clicked ${wrapper.dataset.name}`);
+      document.body.classList.add("portrait-open");
+    });
+  });
+}
+
+// Overlay ❎
+import { overlayIcon, overlay, escape } from "../../src/scripts/overlay.js";

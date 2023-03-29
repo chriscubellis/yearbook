@@ -41,28 +41,3 @@ $warning: 10000;
 $overlay-transparency: 0.9;
 $icon-opacity: 0.5;
 $icon-hover-opacity: 0.9;
-
-// Mixins
-@mixin mobile {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin overlay {
-  background-color: rgba($black, $overlay-transparency);
-  backdrop-filter: blur(10px);
-}
-
-@mixin shadow($color, $layers: 8, $darken: 30%) {
-  $primary-color: $color;
-  $shadow: ();
-  @for $i from 1 through $layers {
-    $shadow: append(
-      $shadow,
-      ($i * -1) * 1px ($i * 1px) 0px darken($primary-color, $darken),
-      comma
-    );
-  }
-  box-shadow: $shadow;
-}

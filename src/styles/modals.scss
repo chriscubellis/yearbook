@@ -33,7 +33,7 @@ aside {
     height: 75px;
     display: none;
 
-    background: linear-gradient(240.25deg, $red 0%, $pink 100%);
+    @include gradient($red, $pink);
     border-radius: 8px;
 
     z-index: $warning;
@@ -124,11 +124,7 @@ aside {
     .modal-content {
       height: auto;
       align-self: end;
-      background-image: linear-gradient(
-        to top right,
-        rgba($purple, 0.9),
-        rgba($indigo, 0.9)
-      );
+      @include gradient($purple, $indigo);
 
       backdrop-filter: blur(5px);
 
@@ -185,7 +181,7 @@ aside {
           width: 100%;
           margin-top: 10px;
           transition: color 0.33s ease-in-out;
-          background: linear-gradient(232deg, $black 0%, $grey-dark 100%);
+          @include gradient($black, $grey-dark);
         }
       }
     }

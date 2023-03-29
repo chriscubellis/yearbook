@@ -78,7 +78,7 @@ header {
       background-size: contain;
     }
 
-    #info {
+    #overlay-toggle {
       background: url("./assets/images/icons/info.svg") no-repeat;
 
       &.open {
@@ -209,8 +209,7 @@ button {
   margin-top: 30px;
   color: $white;
 
-  background: linear-gradient(232deg, $purple 0%, $indigo 100%);
-
+  @include gradient($purple, $indigo);
   @include shadow($purple, 8, 30%);
   border-radius: 4px;
 
@@ -226,12 +225,7 @@ button {
 
   &:hover {
     @include shadow($purple, 6, 40%);
-
-    background: linear-gradient(
-      232deg,
-      adjust-hue($purple, 20deg) 0%,
-      adjust-hue($indigo, 20deg) 100%
-    );
+    @include gradient(adjust-hue($purple, 20deg), adjust-hue($indigo, 20deg));
 
     transform: translate(-2px, 2px);
   }
