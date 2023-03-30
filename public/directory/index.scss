@@ -1,5 +1,6 @@
 @import "../../src/styles/variables";
 @import "../../src/styles/mixins";
+@import url("https://use.typekit.net/kvp1itd.css");
 
 html,
 body {
@@ -210,10 +211,39 @@ aside {
       max-width: none;
       margin: 0;
       height: 80vh;
-      border-radius: 12px;
+      border-radius: 6px;
       padding-bottom: 50px;
       position: relative;
       @include gradient($indigo, $purple);
+
+      /* Update gradient based on data-scene-index attribute */
+      &[data-scene-index="1"] {
+        @include gradient($red, $pink);
+        section h6 {
+          text-shadow: -4px 1px 0 $pink;
+        }
+      }
+
+      &[data-scene-index="2"] {
+        @include gradient($indigo, $blue);
+        section h6 {
+          text-shadow: -4px 1px 0 $green;
+        }
+      }
+
+      &[data-scene-index="3"] {
+        @include gradient($blue, $green);
+        section h6 {
+          text-shadow: -4px 1px 0 $yellow;
+        }
+      }
+
+      &[data-scene-index="4"] {
+        @include gradient($red, $yellow);
+        section h6 {
+          text-shadow: -4px 1px 0 $yellow;
+        }
+      }
 
       a#overlay-toggle {
         position: absolute;
@@ -236,9 +266,13 @@ aside {
         justify-content: center;
         align-items: center;
         h6 {
-          font-size: 24px;
-          color: $white;
+          font-size: 54px;
+          line-height: 28px;
+          color: $black;
           text-transform: capitalize;
+          font-family: "adobe-handwriting-ernie", sans-serif;
+          letter-spacing: -1px;
+          text-shadow: -4px 1px 0 $pink;
         }
 
         ul {

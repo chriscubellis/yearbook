@@ -3,6 +3,17 @@ console.log("🐱 Kitty welcomes you to The Directory");
 // Find the grid element
 const grid = document.getElementById("grid");
 
+// Define the scene file URLs
+const sceneUrls = [
+  "https://prod.spline.design/mj2ZxMr8bkgvzm0O/scene.splinecode",
+  "https://prod.spline.design/ARuRKffWzKbFPBfV/scene.splinecode",
+  "https://prod.spline.design/OJNiB54tN-04I7WL/scene.splinecode",
+  "https://prod.spline.design/eRFdal8r3H8IwIjH/scene.splinecode",
+  "https://prod.spline.design/No1D8IQ7R1pKJyX8/scene.splinecode",
+  "https://prod.spline.design/4pk3e7V0328KztDb/scene.splinecode",
+];
+let sceneIndex = 0;
+
 // Get the JPG and WebP files from the portraits directory
 fetch("portraits/directory.html")
   .then((response) => response.text())
@@ -14,10 +25,11 @@ fetch("portraits/directory.html")
     // Get the JPG and WebP files from the HTML response
     const files = Array.from(html.querySelectorAll("a"))
       .filter((a) => a.href.endsWith(".jpg"))
-      .map((a) => ({
+      .map((a, index) => ({
         jpg: a.href,
         webp: a.dataset.webp,
         name: a.getAttribute("data-name"),
+        sceneIndex: index % sceneUrls.length, // Loop through the scene file URLs
       }));
 
     // Preload the WebP images
@@ -49,7 +61,6 @@ fetch("portraits/directory.html")
 
         // Add the h3 element with the data-name attribute
         const name = document.createElement("h3");
-        ("");
         name.textContent = file.name;
         wrapper.appendChild(name);
 
@@ -75,6 +86,7 @@ fetch("portraits/directory.html")
           });
         });
         wrapper.dataset.name = file.name;
+        wrapper.dataset.sceneIndex = file.sceneIndex;
         grid.appendChild(wrapper);
       });
 
@@ -94,6 +106,7 @@ function addClickListeners() {
   const overlayToggle = document.getElementById("overlay-toggle");
   let splineViewer = null;
 
+  // Open the overlay when a grid item is clicked
   grid.addEventListener("click", (event) => {
     const portrait = event.target.closest(".portrait");
     if (!portrait) {
@@ -113,6 +126,14 @@ function addClickListeners() {
     const overlayContent = document.querySelector(".overlay-content");
     overlayContent.dataset.slug = slug;
 
+    // Set the data-scene-index attribute of the overlay to the scene index
+    const sceneIndex = portrait.dataset.sceneIndex;
+    overlayContent.setAttribute("data-scene-index", sceneIndex);
+
+    // Set the gradient background of the overlay based on the scene index
+    const gradientColors = getGradientColors(sceneIndex);
+    overlayContent.style.background = `linear-gradient(to bottom right, ${gradientColors[0]}, ${gradientColors[1]})`;
+
     // Load the scene when the overlay is opened
     if (!splineViewer) {
       const canvas = document.getElementById("canvas");
@@ -125,8 +146,7 @@ function addClickListeners() {
 
       splineViewer = document.createElement("spline-viewer");
       splineViewer.loadingAnim = true;
-      splineViewer.url =
-        "https://prod.spline.design/mj2ZxMr8bkgvzm0O/scene.splinecode";
+      splineViewer.url = sceneUrls[sceneIndex];
 
       // Add the spline-viewer element to the canvas div
       canvas.appendChild(splineViewer);
@@ -141,6 +161,21 @@ function addClickListeners() {
           const canvas = document.getElementById("canvas");
           canvas.removeChild(splineViewer);
           splineViewer = null;
+
+          const gl =
+            canvas.getContext("webgl") ||
+            canvas.getContext("experimental-webgl");
+
+          // Get a list of all supported WebGL extensions
+          const extensions = gl.getSupportedExtensions();
+
+          // Iterate over the list of extensions and forcibly lose their contexts
+          for (let i = 0; i < extensions.length; i++) {
+            const extension = gl.getExtension(extensions[i]);
+            if (extension && typeof extension.loseContext === "function") {
+              extension.loseContext();
+            }
+          }
         }
       }
     }
@@ -159,5 +194,9 @@ function addClickListeners() {
   });
 }
 
-// Overlay ❎
-import { overlayIcon, overlay, escape } from "../../src/scripts/overlay.js";
+function getGradientColors(sceneIndex) {
+  const colors = ["$pink", "$orange", "$teal", "$green", "$indigo", "$purple"];
+  const startIndex = sceneIndex % colors.length;
+  const endIndex = (startIndex + 1) % colors.length;
+  return [colors[startIndex], colors[endIndex]];
+}
