@@ -132,12 +132,12 @@ function addClickListeners() {
     const overlayContent = document.querySelector(".overlay-content");
     overlayContent.dataset.slug = slug;
 
-    // Set the data-scene-index attribute of the overlay to the scene index
-    const sceneIndex = portrait.dataset.sceneIndex;
-    overlayContent.setAttribute("data-scene-index", sceneIndex);
+    // Find the corresponding scene URL from the sceneUrls array
+    const scene = sceneUrls.find((s) => s.slug === slug);
+    const sceneUrl = scene.url;
 
     // Set the gradient background of the overlay based on the scene index
-    const gradientColors = getGradientColors(sceneIndex);
+    const gradientColors = getGradientColors(scene.scene - 1);
     overlayContent.style.background = `linear-gradient(to bottom right, ${gradientColors[0]}, ${gradientColors[1]})`;
 
     // Load the scene when the overlay is opened
@@ -152,7 +152,8 @@ function addClickListeners() {
 
       splineViewer = document.createElement("spline-viewer");
       splineViewer.loadingAnim = true;
-      splineViewer.url = sceneUrls[sceneIndex];
+
+      splineViewer.url = sceneUrl;
 
       // Add the spline-viewer element to the canvas div
       canvas.appendChild(splineViewer);
