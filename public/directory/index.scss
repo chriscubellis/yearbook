@@ -25,7 +25,7 @@ body {
 }
 
 body {
-  background: url("../../static/background.webp");
+  background: url("../../static/background@2x.jpg");
   height: 100%;
   padding: $sitePadding;
 }
@@ -76,6 +76,8 @@ header {
   height: auto;
   overflow: visible;
   padding: 0 125px 125px 125px;
+  position: relative;
+
   div {
     h3 {
       position: absolute;
@@ -101,6 +103,42 @@ header {
     height: auto;
     aspect-ratio: 1/1;
   }
+
+  #grid-loader {
+    position: absolute !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%) translateY(-150%);
+    width: 200px;
+    height: 125px;
+
+    z-index: 9;
+
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-top-color: $indigo;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    p {
+      margin-top: 30px;
+      font-size: 17px;
+      text-align: center;
+      color: $grey-medium;
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
   @include mobile() {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     padding: 0;
@@ -222,12 +260,32 @@ aside {
         section h6 {
           text-shadow: -4px 1px 0 $pink;
         }
+        #canvas {
+          &::before {
+            content: "Paws and relax, portrait loading...";
+          }
+          spline-viewer {
+            &::before {
+              border-top-color: $pink;
+            }
+          }
+        }
       }
 
       &[data-scene-index="2"] {
         @include gradient($indigo, $blue);
         section h6 {
           text-shadow: -4px 1px 0 $green;
+        }
+        #canvas {
+          &::before {
+            content: "Sorting 1s and 0s...hang in there!";
+          }
+          spline-viewer {
+            &::before {
+              border-top-color: $indigo;
+            }
+          }
         }
       }
 
@@ -236,12 +294,32 @@ aside {
         section h6 {
           text-shadow: -4px 1px 0 $yellow;
         }
+        #canvas {
+          &::before {
+            content: "Building the bits and boops, stay pawsitive";
+          }
+          spline-viewer {
+            &::before {
+              border-top-color: $blue;
+            }
+          }
+        }
       }
 
       &[data-scene-index="4"] {
         @include gradient($red, $yellow);
         section h6 {
           text-shadow: -4px 1px 0 $yellow;
+        }
+        #canvas {
+          &::before {
+            content: "Rendering pickles, one moment...";
+          }
+          spline-viewer {
+            &::before {
+              border-top-color: $yellow;
+            }
+          }
         }
       }
 
@@ -300,10 +378,37 @@ aside {
         background: $black;
         border-radius: 6px;
         overflow: hidden;
+        &::before {
+          content: "Generating You...";
+          font-family: "Interface", sans-serif;
+          font-size: 15px;
+          text-align: center;
+          position: absolute;
+          color: $grey-medium;
+          left: 50%;
+          top: calc(50% + 30px);
+          transform: translate(-50%, -50%);
+          z-index: 0;
+        } // loader text
+
         spline-viewer {
           overflow: hidden;
           width: 100%;
           height: 100%;
+
+          &::before {
+            position: absolute;
+            content: "";
+            z-index: 0;
+            left: calc(50% - 15px);
+            top: calc(50% - 30px);
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-top-color: $indigo;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+          }
         }
       }
     }

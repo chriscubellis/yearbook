@@ -1,0 +1,23 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2.00641 0L9.42825 6.73144C9.79619 7.06515 10.2751 7.25 10.7719 7.25H29.2281C29.7248 7.25 30.2038 7.06515 30.5717 6.73144L37.9936 0H38C39.1046 0 40 0.895431 40 2V38C40 39.1046 39.1046 40 38 40H2C0.895431 40 0 39.1046 0 38V2C0 0.895431 0.895431 0 2 0H2.00641Z" fill="url(#paint0_linear_227_937)"/>
+<rect x="8.64316" y="15.8431" width="10.0941" height="7.85096" fill="white"/>
+<rect x="10.8864" y="23.6941" width="5.60783" height="2.24313" fill="white"/>
+<rect x="6.40009" y="15.8431" width="2.24313" height="7.85096" fill="#D8D8D8"/>
+<rect x="8.64316" y="23.6941" width="2.24313" height="2.24313" fill="#D8D8D8"/>
+<rect opacity="0.6" x="8.64316" y="13.6" width="2.24313" height="2.24313" fill="black"/>
+<rect opacity="0.25" x="10.8864" y="13.6" width="5.60783" height="2.24313" fill="black"/>
+<rect x="8.64316" y="18.0863" width="5.60783" height="5.60783" fill="black"/>
+<rect x="24.345" y="15.8431" width="10.0941" height="7.85096" fill="white"/>
+<rect x="26.5882" y="23.6941" width="5.60783" height="2.24313" fill="white"/>
+<rect x="22.1019" y="15.8431" width="2.24313" height="7.85096" fill="#D8D8D8"/>
+<rect x="24.345" y="23.6941" width="2.24313" height="2.24313" fill="#D8D8D8"/>
+<rect opacity="0.6" x="24.345" y="13.6" width="2.24313" height="2.24313" fill="black"/>
+<rect opacity="0.25" x="26.5882" y="13.6" width="5.60783" height="2.24313" fill="black"/>
+<rect x="24.345" y="18.0863" width="5.60783" height="5.60783" fill="black"/>
+<defs>
+<linearGradient id="paint0_linear_227_937" x1="40" y1="8.56928" x2="1.58516e-06" y2="31.4307" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF6666"/>
+<stop offset="1" stop-color="#E646B6"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,17 +1,9 @@
 console.log("🐱 Kitty welcomes you to The Directory");
+import { sceneUrls } from "./models/scenes.js";
 
 // Find the grid element
 const grid = document.getElementById("grid");
 
-// Define the scene file URLs
-const sceneUrls = [
-  "https://prod.spline.design/mj2ZxMr8bkgvzm0O/scene.splinecode",
-  "https://prod.spline.design/ARuRKffWzKbFPBfV/scene.splinecode",
-  "https://prod.spline.design/OJNiB54tN-04I7WL/scene.splinecode",
-  "https://prod.spline.design/eRFdal8r3H8IwIjH/scene.splinecode",
-  "https://prod.spline.design/No1D8IQ7R1pKJyX8/scene.splinecode",
-  "https://prod.spline.design/4pk3e7V0328KztDb/scene.splinecode",
-];
 let sceneIndex = 0;
 
 // Get the JPG and WebP files from the portraits directory
@@ -31,6 +23,12 @@ fetch("portraits/directory.html")
         name: a.getAttribute("data-name"),
         sceneIndex: index % sceneUrls.length, // Loop through the scene file URLs
       }));
+
+    // Shuffle the files array randomly
+    for (let i = files.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [files[i], files[j]] = [files[j], files[i]];
+    }
 
     // Preload the WebP images
     const webpImages = await Promise.all(
@@ -95,6 +93,14 @@ fetch("portraits/directory.html")
 
     // Add the images to the grid
     grid.append(...images);
+
+    // Remove the loader element
+    const loader = document.getElementById("grid-loader");
+    if (loader) {
+      setTimeout(() => {
+        loader.remove();
+      }, 500);
+    }
 
     addClickListeners();
   })

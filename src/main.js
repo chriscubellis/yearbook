@@ -16,6 +16,7 @@ fetch(SplineUrl)
         const blob = new Blob(chunks);
         const url = URL.createObjectURL(blob);
         spline.load(url).then(() => {});
+        document.querySelector("main").classList.add("cat-loaded");
         return;
       }
       chunks.push(result.value);
