@@ -49,13 +49,13 @@ export const sceneUrls = [
     scene: 1,
   },
   {
-    url: "https://prod.spline.design/st5N107NrWZRd9Ou/scene.splinecode",
+    url: "https://prod.spline.design/YPE3nBtriNLR6Eh3/scene.splinecode",
     slug: "tianna-harvey",
     name: "Tianna Harvey",
     scene: 1,
   },
   {
-    url: "https://prod.spline.design/st5N107NrWZRd9Ou/scene.splinecode",
+    url: "https://prod.spline.design/aVMzgzHYsbBrBbmu/scene.splinecode",
     slug: "yael-elmatad",
     name: "Yael Elmatad",
     scene: 1,
