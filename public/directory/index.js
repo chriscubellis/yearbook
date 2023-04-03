@@ -136,9 +136,9 @@ function addClickListeners() {
     const scene = sceneUrls.find((s) => s.slug === slug);
     const sceneUrl = scene.url;
 
-    // Set the gradient background of the overlay based on the scene index
-    const gradientColors = getGradientColors(scene.scene - 1);
-    overlayContent.style.background = `linear-gradient(to bottom right, ${gradientColors[0]}, ${gradientColors[1]})`;
+    // Set the data-scene-index attribute of the overlay to the scene index
+    const sceneIndex = portrait.dataset.sceneIndex;
+    overlayContent.setAttribute("data-scene-index", sceneIndex);
 
     // Load the scene when the overlay is opened
     if (!splineViewer) {
