@@ -5,6 +5,7 @@ const body = document.body;
 overlayIcon.addEventListener("click", function () {
   this.classList.toggle("open");
   overlay.classList.toggle("open");
+  body.classList.toggle("overlay-open");
   if (body.classList.contains("portrait-open")) {
     body.classList.remove("portrait-open");
   }

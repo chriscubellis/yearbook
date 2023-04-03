@@ -131,10 +131,42 @@ header {
           opacity: 1;
         }
       }
+      @include mobile {
+        left: calc(50% - 90px);
+        background-position: left center;
+        border-radius: 4px;
+        height: 40px;
+        background: $grey-dark url("./assets/images/avatar.svg") no-repeat;
+        width: 180px;
+
+        bottom: 65px;
+        &:hover {
+          background: $grey-dark url("./assets/images/avatar-hover.svg")
+            no-repeat;
+        }
+        &::before {
+          opacity: 1;
+          color: $grey;
+          height: 100%;
+          top: 0;
+          padding-top: 10px;
+          width: 125px;
+          white-space: nowrap;
+          left: 45px;
+          content: "Or Open Directory";
+        }
+      }
     }
   }
 }
 
+@include mobile {
+  body.overlay-open {
+    #staff-grid {
+      display: none;
+    }
+  }
+}
 main {
   flex-direction: column;
   position: relative;
@@ -246,6 +278,12 @@ footer {
     color: $grey-medium;
     font-size: 15px;
     pointer-events: none;
+  }
+  @include mobile {
+    &.network-warning {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 }
 

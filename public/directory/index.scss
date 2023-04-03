@@ -17,17 +17,16 @@ body {
   }
 }
 
-html,
-body {
-  @include mobile {
-    min-height: 100vh; /* fallback for Js load */
-  }
-}
-
 body {
   background: url("../../static/background@2x.jpg");
   height: 100%;
   padding: $sitePadding;
+  @include mobile {
+    padding: $mobilePadding;
+    gap: 10px;
+    display: block;
+    height: auto;
+  }
 }
 
 header {
@@ -53,6 +52,9 @@ header {
 
   @include mobile {
     padding: 15px;
+    left: 5px;
+    position: fixed;
+    z-index: 999;
   }
 }
 
@@ -92,6 +94,9 @@ header {
       border-radius: 6px;
       overflow: hidden;
       cursor: pointer;
+      @include mobile {
+        border-radius: 2px;
+      }
     }
   }
   img,
@@ -142,7 +147,8 @@ header {
   @include mobile() {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     padding: 0;
-    grid-gap: 1rem;
+    grid-gap: 10px;
+    margin-top: 80px;
     div {
       h3 {
         display: none;
@@ -231,8 +237,25 @@ aside {
     }
 
     @include mobile {
-      display: none !important;
-      visibility: hidden;
+      display: flex !important;
+      visibility: visible;
+      left: 22%;
+      margin-top: -5px;
+
+      width: 75%;
+      padding: 0 15px;
+      .modal-content {
+        h6 {
+          font-size: 14px;
+          display: none;
+        }
+        p {
+          text-wrap: balance;
+        }
+        .right {
+          display: none;
+        }
+      }
     }
   }
 
@@ -323,12 +346,12 @@ aside {
         }
       }
 
+      // close overlay
       a#overlay-toggle {
         position: absolute;
         top: 0;
         right: -60px;
         z-index: 99999;
-
         background: $grey-medium url("../../src/assets/images/icons/close.svg")
           no-repeat center center;
         background-size: 60%;
@@ -336,6 +359,17 @@ aside {
         border-radius: 12px;
         width: 50px;
         height: 50px;
+
+        @include mobile {
+          top: -10px;
+          opacity: 1;
+          right: -10px;
+          background: $grey-dark url("../../src/assets/images/icons/close.svg")
+            no-repeat center center;
+          background-size: 60%;
+          width: 40px;
+          height: 40px;
+        }
       }
 
       section {
@@ -351,6 +385,10 @@ aside {
           font-family: "adobe-handwriting-ernie", sans-serif;
           letter-spacing: -1px;
           text-shadow: -4px 1px 0 $pink;
+          @include mobile {
+            font-size: 42px;
+            line-height: 42px;
+          }
         }
 
         ul {
@@ -411,6 +449,12 @@ aside {
           }
         }
       }
+
+      @include mobile {
+        width: 90%;
+        height: 75vh;
+        outline: 1px solid $grey-dark;
+      }
     }
   }
 }
@@ -421,5 +465,13 @@ body.portrait-open {
     canvas {
       display: inline-block;
     }
+  }
+}
+
+// Hide Spline Joystick
+@include mobile {
+  div.nipple {
+    display: none !important;
+    opacity: 0;
   }
 }
