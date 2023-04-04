@@ -1,5 +1,6 @@
 console.log("🐱 Kitty welcomes you to The Directory");
 import { sceneUrls } from "./models/scenes.js";
+import { SplineViewer } from "@splinetool/viewer";
 
 // Find the grid element
 const grid = document.getElementById("grid");
@@ -143,12 +144,6 @@ function addClickListeners() {
     // Load the scene when the overlay is opened
     if (!splineViewer) {
       const canvas = document.getElementById("canvas");
-
-      const splineViewerScript = document.createElement("script");
-      splineViewerScript.type = "module";
-      splineViewerScript.src =
-        "https://unpkg.com/@splinetool/viewer@0.9.277/build/spline-viewer.js";
-      document.head.appendChild(splineViewerScript);
 
       splineViewer = document.createElement("spline-viewer");
       splineViewer.loadingAnim = true;

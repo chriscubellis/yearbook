@@ -38,7 +38,7 @@
   "license": "MIT",
   "dependencies": {
     "@splinetool/runtime": "^0.9.257",
-    "@splinetool/viewer": "^0.9.277",
+    "@splinetool/viewer": "^0.9.281",
     "canvas-capture": "^2.0.6",
     "howler": "^2.2.3",
     "parcel": "^2.8.3",
