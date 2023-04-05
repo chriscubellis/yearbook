@@ -534,6 +534,12 @@ export const sceneUrls = [
   },
   {
     url: "https://prod.spline.design/dkogk8n6oxwz2z2F/scene.splinecode",
+    slug: "jake-longoria",
+    name: "Jake Longoria",
+    scene: 5,
+  },
+  {
+    url: "https://prod.spline.design/dkogk8n6oxwz2z2F/scene.splinecode",
     slug: "jess-maldonado",
     name: "Jess Maldonado",
     scene: 5,
